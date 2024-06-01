@@ -1,9 +1,8 @@
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
-import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
-public class PantallaPedidos extends JFrame{
+public class PantallaEditarPedidos extends JFrame{
     private JPanel panelGeneral;
     private JButton btnCliente;
     private JButton btnPedido;
@@ -15,24 +14,26 @@ public class PantallaPedidos extends JFrame{
     private JButton btnCiudad;
     private JButton btnPerfil;
     private JButton btnLogout;
-    private JButton btnAdd;
-    private JButton btnEdit;
-    private JButton btnDelete;
-    private JTextField buscarTextField;
+    private JButton btnGuardar;
+    private JButton btnCerrar;
     private JLabel lblLogo;
-    private JTable tabla;
+    private JTextField txtFecha;
+    private JTextField txtTotalPedido;
+    private JTextField txtEstado;
+    private JTextField txtIDCliente;
+    private JTextField txtIDProducto;
 
     static ArrayList<Pedido> pedidos = new ArrayList<>();
 
-    public PantallaPedidos() {
+    public PantallaEditarPedidos() {
         super("Panel Clientes");
         setContentPane(panelGeneral);
         ImageIcon imageLogo = new ImageIcon("imagenes/Logo.png");
         lblLogo.setIcon(imageLogo);
 
-        crearTabla();
         cargarIconos();
         formatoBotones();
+
     }
 
     private void cargarIconos() {
@@ -100,17 +101,13 @@ public class PantallaPedidos extends JFrame{
         btnCiudad.setBorder(null);
         btnCiudad.setContentAreaFilled(false);
 
-        btnAdd.setUI(new BasicButtonUI());
-        btnAdd.setFocusPainted(false);
-        btnAdd.setBorderPainted(false);
+        btnGuardar.setUI(new BasicButtonUI());
+        btnGuardar.setFocusPainted(false);
+        btnGuardar.setBorderPainted(false);
 
-        btnEdit.setUI(new BasicButtonUI());
-        btnEdit.setFocusPainted(false);
-        btnEdit.setBorderPainted(false);
-
-        btnDelete.setUI(new BasicButtonUI());
-        btnDelete.setFocusPainted(false);
-        btnDelete.setBorderPainted(false);
+        btnCerrar.setUI(new BasicButtonUI());
+        btnCerrar.setFocusPainted(false);
+        btnCerrar.setBorderPainted(false);
 
         btnLogout.setBackground(null);
         btnLogout.setBorder(null);
@@ -121,34 +118,13 @@ public class PantallaPedidos extends JFrame{
         btnPerfil.setBorderPainted(false);
     }
 
-    private void crearTabla() {
-        String[][] data = new String[pedidos.size()][6];
-
-        for (int i = 0; i < pedidos.size(); i++) {
-            data[i][0] = String.valueOf(pedidos.get(i).getId());
-            data[i][1] = String.valueOf(pedidos.get(i).getFecha());
-            data[i][2] = String.valueOf(pedidos.get(i).getTotalPedido());
-            data[i][3] = pedidos.get(i).getEstado();
-            data[i][4] = String.valueOf(pedidos.get(i).getIdCliente());
-            data[i][5] = String.valueOf(pedidos.get(i).getIdEmpleado());
-        }
-
-        tabla.setModel(new DefaultTableModel(
-                data,
-                new String[]{"ID", "FECHA", "TOTAL PEDIDO", "ESTADO", "ID CLIENTE", "ID EMPLEADO"}
-        ));
-        tabla.getTableHeader().setReorderingAllowed(false);
-        tabla.setEnabled(true);
-        tabla.setDefaultEditor(Object.class, null);
-    }
-
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 JFrame frame = new PantallaEditarPedidos();
                 frame.setVisible(true);
-                frame.setSize(1080,670);
+                frame.setSize(745,620);
                 frame.setLocationRelativeTo(null);
             }
         });
