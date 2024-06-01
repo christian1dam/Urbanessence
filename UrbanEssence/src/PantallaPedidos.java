@@ -15,9 +15,7 @@ public class PantallaPedidos extends JFrame{
     private JButton btnCiudad;
     private JButton btnPerfil;
     private JButton btnLogout;
-    private JButton btnAdd;
     private JButton btnEdit;
-    private JButton btnDelete;
     private JTextField buscarTextField;
     private JLabel lblLogo;
     private JTable tabla;
@@ -25,7 +23,7 @@ public class PantallaPedidos extends JFrame{
     static ArrayList<Pedido> pedidos = new ArrayList<>();
 
     public PantallaPedidos() {
-        super("Panel Clientes");
+        super("Panel Pedidos");
         setContentPane(panelGeneral);
         ImageIcon imageLogo = new ImageIcon("imagenes/Logo.png");
         lblLogo.setIcon(imageLogo);
@@ -100,17 +98,9 @@ public class PantallaPedidos extends JFrame{
         btnCiudad.setBorder(null);
         btnCiudad.setContentAreaFilled(false);
 
-        btnAdd.setUI(new BasicButtonUI());
-        btnAdd.setFocusPainted(false);
-        btnAdd.setBorderPainted(false);
-
         btnEdit.setUI(new BasicButtonUI());
         btnEdit.setFocusPainted(false);
         btnEdit.setBorderPainted(false);
-
-        btnDelete.setUI(new BasicButtonUI());
-        btnDelete.setFocusPainted(false);
-        btnDelete.setBorderPainted(false);
 
         btnLogout.setBackground(null);
         btnLogout.setBorder(null);
@@ -146,7 +136,7 @@ public class PantallaPedidos extends JFrame{
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                JFrame frame = new PantallaEditarPedidos();
+                JFrame frame = new PantallaPedidos();
                 frame.setVisible(true);
                 frame.setSize(1080,670);
                 frame.setLocationRelativeTo(null);

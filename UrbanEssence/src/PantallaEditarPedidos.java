@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class PantallaEditarPedidos extends JFrame{
     private JPanel panelGeneral;
-    private JButton btnCliente;
-    private JButton btnPedido;
+    private JButton btnPedidos;
+    private JButton btnClientes;
     private JButton btnProveedor;
     private JButton btnProducto;
     private JButton btnTipo;
@@ -17,16 +17,22 @@ public class PantallaEditarPedidos extends JFrame{
     private JButton btnGuardar;
     private JButton btnCerrar;
     private JLabel lblLogo;
-    private JTextField txtFecha;
-    private JTextField txtTotalPedido;
-    private JTextField txtEstado;
-    private JTextField txtIDCliente;
-    private JTextField txtIDProducto;
+    private JTextField txtNombre;
+    private JTextField txtGenero;
+    private JTextField txtDireccion;
+    private JTextField txtTelefono;
+    private JTextField txtFNac;
+    private JLabel lblNombre;
+    private JLabel lblGenero;
+    private JLabel lblDireccion;
+    private JLabel lblTelefono;
+    private JLabel lblFNac;
+    private JLabel lblTitulo;
 
     static ArrayList<Pedido> pedidos = new ArrayList<>();
 
     public PantallaEditarPedidos() {
-        super("Panel Clientes");
+        super("Editar Pedidos");
         setContentPane(panelGeneral);
         ImageIcon imageLogo = new ImageIcon("imagenes/Logo.png");
         lblLogo.setIcon(imageLogo);
@@ -38,10 +44,10 @@ public class PantallaEditarPedidos extends JFrame{
 
     private void cargarIconos() {
         ImageIcon iconoClientes = new ImageIcon("imagenes/iconoClientes.png");
-        btnCliente.setIcon(iconoClientes);
+        btnClientes.setIcon(iconoClientes);
 
         ImageIcon iconoPedidos = new ImageIcon("imagenes/iconoPedidosBlanco.png");
-        btnPedido.setIcon(iconoPedidos);
+        btnPedidos.setIcon(iconoPedidos);
 
         ImageIcon iconoProveedores = new ImageIcon("imagenes/iconoProveedores.png");
         btnProveedor.setIcon(iconoProveedores);
@@ -71,11 +77,12 @@ public class PantallaEditarPedidos extends JFrame{
     }
 
     private void formatoBotones() {
-        btnCliente.setUI(new BasicButtonUI());
-        btnCliente.setBorder(null);
-        btnCliente.setContentAreaFilled(false);
 
-        btnPedido.setUI(new BasicButtonUI());
+        btnClientes.setUI(new BasicButtonUI());
+        btnClientes.setBorder(null);
+        btnClientes.setContentAreaFilled(false);
+
+        btnPedidos.setUI(new BasicButtonUI());
 
         btnProveedor.setUI(new BasicButtonUI());
         btnProveedor.setBorder(null);
@@ -124,8 +131,10 @@ public class PantallaEditarPedidos extends JFrame{
             public void run() {
                 JFrame frame = new PantallaEditarPedidos();
                 frame.setVisible(true);
-                frame.setSize(745,620);
+                frame.setSize(750,620);
                 frame.setLocationRelativeTo(null);
+                frame.setResizable(false);
+
             }
         });
     }
