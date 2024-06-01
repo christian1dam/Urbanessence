@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3dff3197-557f-4c87-a901-7748afcac949" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/out/production/UrbanEssence/PantallaEditarPedidos$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UrbanEssence/PantallaEditarPedidos$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UrbanEssence/PantallaEditarPedidos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UrbanEssence/PantallaEditarPedidos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UrbanEssence/PantallaPedidos$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UrbanEssence/PantallaPedidos$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UrbanEssence/PantallaPedidos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UrbanEssence/PantallaPedidos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PantallaEditarPedidos.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PantallaEditarPedidos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PantallaPedidos.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/PantallaPedidos.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PantallaPedidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PantallaPedidos.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;bayonaa&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/christian1dam/Urbanessence.git&quot;,
+    &quot;accountId&quot;: &quot;fb4a227b-5fd3-4872-9fd9-1ba1e3c95c05&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2hEXsQeBjbOBKYbr3IqJ3NaBvQZ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.PantallaEditarPedidos.executor": "Run",
+    "Application.PantallaEditarProveedores.executor": "Run",
+    "Application.PantallaPedidos.executor": "Run",
+    "Application.PantallaProveedores.executor": "Run",
+    "Application.prueba.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "featuresPedidos",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mbayo/Desktop/Urbanessence/UrbanEssence",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="PantallaEditarPedidos" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PantallaEditarPedidos" />
+      <module name="UrbanEssence" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PantallaEditarProveedores" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PantallaEditarProveedores" />
+      <module name="UrbanEssence" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PantallaPedidos" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PantallaPedidos" />
+      <module name="UrbanEssence" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PantallaProveedores" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PantallaProveedores" />
+      <module name="UrbanEssence" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="prueba" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="prueba" />
+      <module name="UrbanEssence" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PantallaPedidos" />
+        <item itemvalue="Application.PantallaEditarProveedores" />
+        <item itemvalue="Application.PantallaProveedores" />
+        <item itemvalue="Application.PantallaEditarPedidos" />
+        <item itemvalue="Application.prueba" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3dff3197-557f-4c87-a901-7748afcac949" name="Changes" comment="" />
+      <created>1717160416083</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717160416083</updated>
+    </task>
+    <servers />
+  </component>
+</project>
