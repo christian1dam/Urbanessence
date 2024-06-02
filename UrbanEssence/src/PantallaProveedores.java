@@ -21,6 +21,7 @@ public class PantallaProveedores extends JFrame{
     private JTextField buscarTextField;
     private JLabel lblLogo;
     private JTable tabla;
+    private JButton btnBuscar;
 
     static ArrayList<Proveedor> proveedores = new ArrayList<>();
 
@@ -67,6 +68,9 @@ public class PantallaProveedores extends JFrame{
 
         ImageIcon iconoPerfil = new ImageIcon("imagenes/iconoPerfil.png");
         btnPerfil.setIcon(iconoPerfil);
+
+        ImageIcon iconoLupa = new ImageIcon("imagenes/iconoLupa.png");
+        btnBuscar.setIcon(iconoLupa);
     }
 
     private void formatoBotones() {
@@ -119,6 +123,10 @@ public class PantallaProveedores extends JFrame{
         btnPerfil.setUI(new BasicButtonUI());
         btnPerfil.setFocusPainted(false);
         btnPerfil.setBorderPainted(false);
+
+        btnBuscar.setUI(new BasicButtonUI());
+        btnBuscar.setFocusPainted(false);
+        btnBuscar.setBorderPainted(false);
     }
 
     private void crearTabla() {
