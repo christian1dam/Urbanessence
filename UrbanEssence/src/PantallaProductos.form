@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="PantallaTiendas">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="PantallaProductos">
   <grid id="27dc6" binding="panelGeneral" layout-manager="GridLayoutManager" row-count="8" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="50" right="40"/>
     <constraints>
@@ -18,7 +18,7 @@
           <text value=""/>
         </properties>
       </component>
-      <grid id="1222f" layout-manager="GridLayoutManager" row-count="10" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="1222f" layout-manager="GridLayoutManager" row-count="11" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="5" bottom="0" right="0"/>
         <constraints>
           <grid row="2" column="0" row-span="6" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -28,7 +28,7 @@
         <children>
           <scrollpane id="52d9c">
             <constraints>
-              <grid row="1" column="1" row-span="9" col-span="6" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="1" column="1" row-span="10" col-span="6" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="800" height="-1"/>
               </grid>
             </constraints>
@@ -53,19 +53,9 @@
               <text value="Proveedores"/>
             </properties>
           </component>
-          <component id="41049" class="javax.swing.JButton" binding="btnProducto">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font size="16"/>
-              <horizontalAlignment value="2"/>
-              <text value="Productos"/>
-            </properties>
-          </component>
           <component id="549de" class="javax.swing.JButton" binding="btnTipo">
             <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="16"/>
@@ -75,7 +65,7 @@
           </component>
           <component id="e51da" class="javax.swing.JButton" binding="btnEmpleado">
             <constraints>
-              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="16"/>
@@ -85,7 +75,7 @@
           </component>
           <component id="44c66" class="javax.swing.JButton" binding="btnCiudad">
             <constraints>
-              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="16"/>
@@ -167,9 +157,17 @@
               <text value="Clientes"/>
             </properties>
           </component>
-          <component id="d4e8a" class="javax.swing.JButton" binding="btnTiendas">
+          <component id="12dcb" class="javax.swing.JButton" binding="btnBuscar">
             <constraints>
-              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
+              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="d4e8a" class="javax.swing.JButton" binding="btnProductos">
+            <constraints>
+              <grid row="3" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
                 <preferred-size width="200" height="-1"/>
               </grid>
             </constraints>
@@ -185,15 +183,17 @@
               <foreground color="-1"/>
               <horizontalAlignment value="2"/>
               <opaque value="true"/>
-              <text value="Tiendas"/>
+              <text value="Productos"/>
             </properties>
           </component>
-          <component id="12dcb" class="javax.swing.JButton" binding="btnBuscar">
+          <component id="41049" class="javax.swing.JButton" binding="btnTiendas">
             <constraints>
-              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value=""/>
+              <font size="16"/>
+              <horizontalAlignment value="2"/>
+              <text value="Tiendas"/>
             </properties>
           </component>
         </children>
