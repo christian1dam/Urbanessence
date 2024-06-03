@@ -47,6 +47,11 @@ public class PantallaUsuario extends JFrame{
             JDialog editarDatos = new EditarDatosUsuario(this, "Tú perfil");
             editarDatos.setVisible(true);
         });
+
+        btnHistorialDePedidos.addActionListener(e -> {
+            JDialog historialPedidos = new HistorialDePedidosDelUsuario(this, "Tú perfil");
+            historialPedidos.setVisible(true);
+        });
     }
 
     private void setLogo() {
