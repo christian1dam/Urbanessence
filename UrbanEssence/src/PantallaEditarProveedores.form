@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="PantallaEditarPedidos">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="PantallaEditarProveedores">
   <grid id="27dc6" binding="panelGeneral" layout-manager="GridLayoutManager" row-count="8" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="50" right="40"/>
     <constraints>
@@ -26,16 +26,6 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="58eb6" class="javax.swing.JButton" binding="btnProveedor">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font size="16"/>
-              <horizontalAlignment value="2"/>
-              <text value="Proveedores"/>
-            </properties>
-          </component>
           <component id="41049" class="javax.swing.JButton" binding="btnProducto">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
@@ -86,7 +76,7 @@
               <text value="Ciudades"/>
             </properties>
           </component>
-          <grid id="758d2" layout-manager="GridLayoutManager" row-count="8" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="758d2" layout-manager="GridLayoutManager" row-count="9" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="1" row-span="8" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -102,7 +92,7 @@
                 </constraints>
                 <properties>
                   <font size="14" style="1"/>
-                  <text value="Fecha"/>
+                  <text value="Nombre"/>
                 </properties>
               </component>
               <component id="abc50" class="javax.swing.JLabel" binding="lblGenero">
@@ -111,7 +101,7 @@
                 </constraints>
                 <properties>
                   <font size="14" style="1"/>
-                  <text value="Total pedido"/>
+                  <text value="Correo"/>
                 </properties>
               </component>
               <component id="d2667" class="javax.swing.JLabel" binding="lblDireccion">
@@ -120,7 +110,7 @@
                 </constraints>
                 <properties>
                   <font size="14" style="1"/>
-                  <text value="Estado"/>
+                  <text value="NIF"/>
                 </properties>
               </component>
               <component id="55f32" class="javax.swing.JLabel" binding="lblTelefono">
@@ -129,7 +119,7 @@
                 </constraints>
                 <properties>
                   <font size="14" style="1"/>
-                  <text value="ID Cliente"/>
+                  <text value="Teléfono"/>
                 </properties>
               </component>
               <component id="5f8b6" class="javax.swing.JLabel" binding="lblFNac">
@@ -138,7 +128,7 @@
                 </constraints>
                 <properties>
                   <font size="14" style="1"/>
-                  <text value="ID Producto"/>
+                  <text value="Dirección"/>
                 </properties>
               </component>
               <component id="86cfd" class="javax.swing.JTextField" binding="txtNombre">
@@ -187,12 +177,12 @@
                 </constraints>
                 <properties>
                   <font size="28" style="1"/>
-                  <text value="Datos Pedidos"/>
+                  <text value="Datos Proveedores"/>
                 </properties>
               </component>
               <component id="25af6" class="javax.swing.JButton" binding="btnCerrar">
                 <constraints>
-                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-16777216"/>
@@ -202,7 +192,7 @@
               </component>
               <component id="d141f" class="javax.swing.JButton" binding="btnGuardar">
                 <constraints>
-                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-16777216"/>
@@ -210,26 +200,25 @@
                   <text value="GUARDAR"/>
                 </properties>
               </component>
+              <component id="1c7b1" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+                <constraints>
+                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="e87bf" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="14" style="1"/>
+                  <text value="ID Ciudad"/>
+                </properties>
+              </component>
             </children>
           </grid>
-          <component id="1e740" class="javax.swing.JButton" binding="btnPedidos">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
-                <minimum-size width="200" height="-1"/>
-              </grid>
-            </constraints>
-            <properties>
-              <background color="-16777216"/>
-              <borderPainted value="false"/>
-              <focusPainted value="false"/>
-              <focusable value="false"/>
-              <font size="16"/>
-              <foreground color="-1"/>
-              <horizontalAlignment value="2"/>
-              <opaque value="true"/>
-              <text value="Pedidos"/>
-            </properties>
-          </component>
           <component id="d4e8a" class="javax.swing.JButton" binding="btnClientes">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
@@ -248,6 +237,45 @@
               <horizontalAlignment value="2"/>
               <opaque value="false"/>
               <text value="Clientes"/>
+            </properties>
+          </component>
+          <component id="6c426" class="javax.swing.JButton" binding="btnProveedor">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
+                <preferred-size width="200" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-16777216"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="true"/>
+              <defaultCapable value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <font size="16"/>
+              <foreground color="-1"/>
+              <horizontalAlignment value="2"/>
+              <text value="Proveedores"/>
+            </properties>
+          </component>
+          <component id="cdb7b" class="javax.swing.JButton" binding="btnPedidos">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
+                <preferred-size width="200" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-16777216"/>
+              <borderPainted value="true"/>
+              <contentAreaFilled value="true"/>
+              <doubleBuffered value="false"/>
+              <enabled value="true"/>
+              <focusPainted value="true"/>
+              <focusable value="true"/>
+              <font size="16"/>
+              <horizontalAlignment value="2"/>
+              <opaque value="true"/>
+              <text value="Pedidos"/>
             </properties>
           </component>
         </children>

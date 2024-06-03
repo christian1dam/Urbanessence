@@ -2,7 +2,7 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.util.ArrayList;
 
-public class PantallaEditarPedidos extends JFrame{
+public class PantallaEditarProveedores extends JFrame{
     private JPanel panelGeneral;
     private JButton btnPedidos;
     private JButton btnClientes;
@@ -28,11 +28,12 @@ public class PantallaEditarPedidos extends JFrame{
     private JLabel lblTelefono;
     private JLabel lblFNac;
     private JLabel lblTitulo;
+    private JTextField textField1;
 
-    static ArrayList<Pedido> pedidos = new ArrayList<>();
+    static ArrayList<Proveedor> provedores = new ArrayList<>();
 
-    public PantallaEditarPedidos() {
-        super("Editar Pedidos");
+    public PantallaEditarProveedores() {
+        super("Editar Proveedores");
         setContentPane(panelGeneral);
         ImageIcon imageLogo = new ImageIcon("imagenes/Logo.png");
         lblLogo.setIcon(imageLogo);
@@ -46,10 +47,10 @@ public class PantallaEditarPedidos extends JFrame{
         ImageIcon iconoClientes = new ImageIcon("imagenes/iconoClientes.png");
         btnClientes.setIcon(iconoClientes);
 
-        ImageIcon iconoPedidos = new ImageIcon("imagenes/iconoPedidosBlanco.png");
+        ImageIcon iconoPedidos = new ImageIcon("imagenes/iconoPedidos.png");
         btnPedidos.setIcon(iconoPedidos);
 
-        ImageIcon iconoProveedores = new ImageIcon("imagenes/iconoProveedores.png");
+        ImageIcon iconoProveedores = new ImageIcon("imagenes/iconoProveedoresBlanco.png");
         btnProveedor.setIcon(iconoProveedores);
 
         ImageIcon iconoProductos = new ImageIcon("imagenes/iconoProductos.png");
@@ -83,10 +84,10 @@ public class PantallaEditarPedidos extends JFrame{
         btnClientes.setContentAreaFilled(false);
 
         btnPedidos.setUI(new BasicButtonUI());
+        btnPedidos.setBorder(null);
+        btnPedidos.setContentAreaFilled(false);
 
         btnProveedor.setUI(new BasicButtonUI());
-        btnProveedor.setBorder(null);
-        btnProveedor.setContentAreaFilled(false);
 
         btnProducto.setUI(new BasicButtonUI());
         btnProducto.setBorder(null);
@@ -115,7 +116,6 @@ public class PantallaEditarPedidos extends JFrame{
         btnCerrar.setUI(new BasicButtonUI());
         btnCerrar.setFocusPainted(false);
         btnCerrar.setBorderPainted(false);
-
         btnLogout.setBackground(null);
         btnLogout.setBorder(null);
         btnLogout.setContentAreaFilled(false);
@@ -129,7 +129,7 @@ public class PantallaEditarPedidos extends JFrame{
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                JFrame frame = new PantallaEditarPedidos();
+                JFrame frame = new PantallaEditarProveedores();
                 frame.setVisible(true);
                 frame.setSize(750,620);
                 frame.setLocationRelativeTo(null);
