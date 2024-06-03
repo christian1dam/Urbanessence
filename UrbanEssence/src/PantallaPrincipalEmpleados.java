@@ -47,7 +47,19 @@ public class PantallaPrincipalEmpleados extends JFrame{
         setLogo();
         configurarBotones();
         cargarTabla();
+
+        editarBTN.addActionListener(e -> {
+            JDialog abrirEditor = new EditarDatosUsuario(this, "Editar empleado");
+            abrirEditor.setVisible(true);
+        });
+
+        anyadirBTN.addActionListener(e -> {
+            JDialog abrirCreacionEmpleado = new CrearEmpleado(this, "Crear empleado");
+            abrirCreacionEmpleado.setVisible(true);
+        });
     }
+
+
 
 
     private void cargarTabla() {
