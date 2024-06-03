@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
 
+import static javax.swing.SwingUtilities.invokeLater;
+
 public class PantallaUsuario extends JFrame{
     private JPanel headerPanel;
     private JLabel imagenUrbanEssence;
@@ -72,6 +74,6 @@ public class PantallaUsuario extends JFrame{
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(PantallaUsuario::new);
+        invokeLater(PantallaUsuario::new);
     }
 }
