@@ -1,8 +1,8 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicButtonUI;
-import javax.swing.plaf.basic.BasicLabelUI;
 import java.awt.*;
+
+import static javax.swing.BoxLayout.X_AXIS;
 
 public class PerfilUsuarioASEmpleado extends JFrame{
     private JPanel panelPrincipalPantallaUsuario;
@@ -17,6 +17,7 @@ public class PerfilUsuarioASEmpleado extends JFrame{
     private JPanel main;
     private JLabel imagenUrbanEssence;
     private JPanel divBotonesHeader;
+    private JPanel auxBotonesHeader;
 
     public PerfilUsuarioASEmpleado(){
         JFrame perfil = new JFrame("Tú perfil");
@@ -37,39 +38,56 @@ public class PerfilUsuarioASEmpleado extends JFrame{
         headerPanel.setBorder(BorderFactory.createLineBorder(Color.magenta, 2, true)); //quitar luego
         headerPanel.setPreferredSize(new Dimension(750, 120));
         headerPanel.setBackground(Color.WHITE);
-        configuracionDivBotonesHeader();
+        configuracionPanelBotonesHeader();
         perfil.add(headerPanel, BorderLayout.NORTH);
-
     }
 
-    private void configuracionDivBotonesHeader() {
+    private void configuracionPanelBotonesHeader() {
         divBotonesHeader.setPreferredSize(new Dimension(300, 117));
-        divBotonesHeader.setLayout(new FlowLayout(FlowLayout.CENTER));
+        divBotonesHeader.setLayout(new BoxLayout(divBotonesHeader, X_AXIS));
         divBotonesHeader.setBorder(BorderFactory.createLineBorder(Color.CYAN, 2, true));
         divBotonesHeader.setBackground(Color.white);
-        configuracionBotonesHeader(divBotonesHeader);
+        configuracionBotonesHeader();
         headerPanel.add(divBotonesHeader, BorderLayout.EAST);
     }
 
+    private void configuracionBotonesHeader() {
+        auxBotonesHeader.setLayout(new BoxLayout(auxBotonesHeader, BoxLayout.Y_AXIS)); // horizontal
+        auxBotonesHeader.setPreferredSize(new Dimension(300, 50)); // Asegurar suficiente espacio
+        auxBotonesHeader.setBorder(BorderFactory.createLineBorder(Color.GREEN, 2, true));
 
+        btnLogout.setBackground(Color.black);
+        btnLogout.setVisible(true);
+        auxBotonesHeader.add(btnLogout, X_AXIS);
 
-    private void configuracionBotonesHeader(JPanel panel) {
-        btnPerfil.setUI(new BasicButtonUI());
-        btnPerfil.setContentAreaFilled(true);
-        btnPerfil.setBorder(BorderFactory.createEmptyBorder());
-        btnPerfil.setBackground(Color.BLACK);
-        btnPerfil.setForeground(Color.WHITE);
-        btnPerfil.setPreferredSize(new Dimension(80, 20));
-        panel.add(btnPerfil);
+        headerPanel.add(auxBotonesHeader, BorderLayout.EAST);
 
-        btnLogout.setUI(new BasicButtonUI());
-        btnLogout.setContentAreaFilled(true);
-        btnLogout.setBorder(BorderFactory.createEmptyBorder());
-        btnLogout.setBackground(Color.BLACK);
-        btnLogout.setForeground(Color.WHITE);
-        btnLogout.setPreferredSize(new Dimension(20, 20));
-        panel.add(btnLogout);
     }
+
+
+
+//    private void configuracionBotonesHeader(JPanel panel) {
+//        auxBotonesHeader.setLayout(new BoxLayout(auxBotonesHeader, BoxLayout.X_AXIS)); //vertical
+//        auxBotonesHeader.setPreferredSize(new Dimension(200, 20));
+//        auxBotonesHeader.setBorder(BorderFactory.createLineBorder(Color.GREEN, 2, true));
+//        panel.add(auxBotonesHeader);
+//
+//        btnPerfil.setUI(new BasicButtonUI());
+//        btnPerfil.setContentAreaFilled(true);
+//        btnPerfil.setBorder(BorderFactory.createEmptyBorder());
+//        btnPerfil.setBackground(Color.BLACK);
+//        btnPerfil.setForeground(Color.WHITE);
+//        btnPerfil.setPreferredSize(new Dimension(80, 20));
+//        auxBotonesHeader.add(btnPerfil, BoxLayout.X_AXIS);
+//
+//        btnLogout.setUI(new BasicButtonUI());
+//        btnLogout.setContentAreaFilled(true);
+//        btnLogout.setBorder(BorderFactory.createEmptyBorder());
+//        btnLogout.setBackground(Color.BLACK);
+//        btnLogout.setForeground(Color.WHITE);
+//        btnLogout.setPreferredSize(new Dimension(20, 20));
+//        auxBotonesHeader.add(btnLogout, BoxLayout.X_AXIS);
+//    }
 
 
     private void setImagenes() {
