@@ -5,6 +5,7 @@
       <xy x="48" y="54" width="800" height="800"/>
     </constraints>
     <properties>
+      <background color="-1"/>
       <minimumSize width="800" height="600"/>
       <preferredSize width="800" height="600"/>
     </properties>
@@ -218,6 +219,7 @@
         <constraints border-constraint="Center"/>
         <properties>
           <background color="-394759"/>
+          <foreground color="-16777216"/>
         </properties>
         <border type="none"/>
         <children>
@@ -244,7 +246,9 @@
                 <preferred-size width="-1" height="282"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-1"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="a71c0" class="javax.swing.JLabel" binding="labelFechaContratacion">
@@ -252,6 +256,7 @@
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <foreground color="-16777216"/>
                   <text value="Fecha de contratación"/>
                 </properties>
               </component>
@@ -260,6 +265,7 @@
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <foreground color="-16777216"/>
                   <text value="Contraseña"/>
                 </properties>
               </component>
@@ -268,6 +274,7 @@
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <foreground color="-16777216"/>
                   <text value="Nueva contraseña"/>
                 </properties>
               </component>
@@ -276,6 +283,7 @@
                   <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <foreground color="-16777216"/>
                   <text value="Confirmar nueva contraseña"/>
                 </properties>
               </component>
@@ -285,7 +293,10 @@
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-1"/>
+                  <foreground color="-16777216"/>
+                </properties>
               </component>
               <component id="5e1c5" class="javax.swing.JTextField" binding="contrasenyaUsuario">
                 <constraints>
@@ -293,7 +304,10 @@
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-1"/>
+                  <foreground color="-16777216"/>
+                </properties>
               </component>
               <component id="b08e6" class="javax.swing.JTextField" binding="nuevaContrasenyaUsuario">
                 <constraints>
@@ -301,7 +315,10 @@
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-1"/>
+                  <foreground color="-16777216"/>
+                </properties>
               </component>
               <component id="d417" class="javax.swing.JTextField" binding="confirmarNuevaContrasenyaUsuario">
                 <constraints>
@@ -309,7 +326,10 @@
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-1"/>
+                  <foreground color="-16777216"/>
+                </properties>
               </component>
             </children>
           </grid>
@@ -320,7 +340,9 @@
                 <preferred-size width="-1" height="282"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-1"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="a5575" class="javax.swing.JLabel" binding="labelNombre">
@@ -328,6 +350,7 @@
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <foreground color="-16777216"/>
                   <text value="Nombre"/>
                 </properties>
               </component>
@@ -336,6 +359,8 @@
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-1"/>
+                  <foreground color="-16777216"/>
                   <text value="Apellidos"/>
                 </properties>
               </component>
@@ -344,6 +369,8 @@
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-1"/>
+                  <foreground color="-16777216"/>
                   <text value="Fecha de nacimiento"/>
                 </properties>
               </component>
@@ -352,6 +379,8 @@
                   <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-1"/>
+                  <foreground color="-16777216"/>
                   <text value="Cargo"/>
                 </properties>
               </component>
@@ -361,7 +390,10 @@
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-1"/>
+                  <foreground color="-16777216"/>
+                </properties>
               </component>
               <component id="ad164" class="javax.swing.JTextField" binding="apellidosUsuario">
                 <constraints>
@@ -369,7 +401,10 @@
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-1"/>
+                  <foreground color="-16777216"/>
+                </properties>
               </component>
               <component id="44824" class="javax.swing.JTextField" binding="fechaNacUsuario">
                 <constraints>
@@ -377,7 +412,10 @@
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-1"/>
+                  <foreground color="-16777216"/>
+                </properties>
               </component>
               <component id="1e3e5" class="javax.swing.JTextField" binding="cargoUsuario">
                 <constraints>
@@ -385,7 +423,10 @@
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-1"/>
+                  <foreground color="-16777216"/>
+                </properties>
               </component>
             </children>
           </grid>

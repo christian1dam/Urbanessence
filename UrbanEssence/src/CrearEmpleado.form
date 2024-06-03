@@ -278,6 +278,7 @@
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <foreground color="-16777216"/>
                       <text value="Nombre"/>
                     </properties>
                   </component>
@@ -286,6 +287,7 @@
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <foreground color="-16777216"/>
                       <text value="Apellidos"/>
                     </properties>
                   </component>
@@ -294,6 +296,7 @@
                       <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <foreground color="-16777216"/>
                       <text value="Fecha de nacimiento"/>
                     </properties>
                   </component>
@@ -302,6 +305,7 @@
                       <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <foreground color="-16777216"/>
                       <text value="Cargo"/>
                     </properties>
                   </component>
@@ -311,7 +315,10 @@
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <background color="-1"/>
+                      <foreground color="-16777216"/>
+                    </properties>
                   </component>
                   <component id="92c29" class="javax.swing.JTextField" binding="apellidosEmpleado">
                     <constraints>
@@ -319,7 +326,10 @@
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <background color="-1"/>
+                      <foreground color="-16777216"/>
+                    </properties>
                   </component>
                   <component id="63af7" class="javax.swing.JTextField" binding="fechaNacEmpleado">
                     <constraints>
@@ -327,7 +337,10 @@
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <background color="-1"/>
+                      <foreground color="-16777216"/>
+                    </properties>
                   </component>
                   <component id="5ea72" class="javax.swing.JTextField" binding="cargoEmpleado">
                     <constraints>
@@ -335,13 +348,16 @@
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <background color="-1"/>
+                    </properties>
                   </component>
                   <component id="f52ca" class="javax.swing.JLabel" binding="labelFechaContratacion">
                     <constraints>
                       <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <foreground color="-16777216"/>
                       <text value="Fecha de contratación"/>
                     </properties>
                   </component>
@@ -351,7 +367,10 @@
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <background color="-1"/>
+                      <foreground color="-16777216"/>
+                    </properties>
                   </component>
                   <vspacer id="b8669">
                     <constraints>
@@ -378,6 +397,7 @@
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <foreground color="-16777216"/>
                       <text value="NUSS"/>
                     </properties>
                   </component>
@@ -386,6 +406,8 @@
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <background color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="Salario"/>
                     </properties>
                   </component>
@@ -394,6 +416,8 @@
                       <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <background color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="Nombre de usuario"/>
                     </properties>
                   </component>
@@ -403,7 +427,9 @@
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <background color="-1"/>
+                    </properties>
                   </component>
                   <component id="e3f7f" class="javax.swing.JTextField" binding="salarioEmpleado">
                     <constraints>
@@ -412,6 +438,7 @@
                       </grid>
                     </constraints>
                     <properties>
+                      <background color="-1"/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -420,6 +447,8 @@
                       <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <background color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="Contraseña"/>
                     </properties>
                   </component>
@@ -430,6 +459,7 @@
                       </grid>
                     </constraints>
                     <properties>
+                      <background color="-1"/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -439,13 +469,17 @@
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <background color="-1"/>
+                    </properties>
                   </component>
                   <component id="974b7" class="javax.swing.JLabel" binding="confirmarContra">
                     <constraints>
                       <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <background color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="Confirmar contraseña"/>
                     </properties>
                   </component>
@@ -456,6 +490,7 @@
                       </grid>
                     </constraints>
                     <properties>
+                      <background color="-1"/>
                       <text value=""/>
                     </properties>
                   </component>
