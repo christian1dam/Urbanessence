@@ -39,8 +39,14 @@ public class PantallaUsuario extends JFrame{
         perfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         perfil.setVisible(true);
         perfil.pack();
+        perfil.setLocationRelativeTo(null);
         setLogo();
         configurarBotones();
+
+        btnEditarMisDatos.addActionListener(e -> {
+            JDialog editarDatos = new EditarDatosUsuario(this, "Tú perfil");
+            editarDatos.setVisible(true);
+        });
     }
 
     private void setLogo() {
