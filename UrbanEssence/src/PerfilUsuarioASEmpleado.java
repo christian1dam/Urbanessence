@@ -16,6 +16,7 @@ public class PerfilUsuarioASEmpleado extends JFrame{
     private JPanel asideLeft;
     private JPanel main;
     private JLabel imagenUrbanEssence;
+    private JPanel divBotonesHeader;
 
     public PerfilUsuarioASEmpleado(){
         JFrame perfil = new JFrame("Tú perfil");
@@ -33,35 +34,50 @@ public class PerfilUsuarioASEmpleado extends JFrame{
 
     private void configuracionHeader(JFrame perfil) {
         headerPanel.setLayout(new BorderLayout());
-        headerPanel.setBorder(null);
+        headerPanel.setBorder(BorderFactory.createLineBorder(Color.magenta, 2, true)); //quitar luego
         headerPanel.setPreferredSize(new Dimension(750, 120));
         headerPanel.setBackground(Color.WHITE);
-        configuracionBotonesHeader(headerPanel);
+        configuracionDivBotonesHeader();
         perfil.add(headerPanel, BorderLayout.NORTH);
+
     }
 
-    private void configuracionBotonesHeader(JPanel headerPanel) {
-//        btnPerfil.setUI(new BasicButtonUI());
-        btnPerfil.setBorder(null);
-//        btnPerfil.setContentAreaFilled(false);
-        btnPerfil.setBackground(Color.black);
+    private void configuracionDivBotonesHeader() {
+        divBotonesHeader.setPreferredSize(new Dimension(300, 117));
+        divBotonesHeader.setLayout(new FlowLayout(FlowLayout.CENTER));
+        divBotonesHeader.setBorder(BorderFactory.createLineBorder(Color.CYAN, 2, true));
+        divBotonesHeader.setBackground(Color.white);
+        configuracionBotonesHeader(divBotonesHeader);
+        headerPanel.add(divBotonesHeader, BorderLayout.EAST);
+    }
+
+
+
+    private void configuracionBotonesHeader(JPanel panel) {
+        btnPerfil.setUI(new BasicButtonUI());
+        btnPerfil.setContentAreaFilled(true);
+        btnPerfil.setBorder(BorderFactory.createEmptyBorder());
+        btnPerfil.setBackground(Color.BLACK);
+        btnPerfil.setForeground(Color.WHITE);
         btnPerfil.setPreferredSize(new Dimension(80, 20));
-        headerPanel.add(btnPerfil, BorderLayout.EAST);
+        panel.add(btnPerfil);
 
         btnLogout.setUI(new BasicButtonUI());
-        btnLogout.setBorder(null);
-//        btnLogout.setContentAreaFilled(false);
+        btnLogout.setContentAreaFilled(true);
+        btnLogout.setBorder(BorderFactory.createEmptyBorder());
+        btnLogout.setBackground(Color.BLACK);
+        btnLogout.setForeground(Color.WHITE);
         btnLogout.setPreferredSize(new Dimension(20, 20));
-        btnLogout.setBackground(Color.white);
-        headerPanel.add(btnLogout, BorderLayout.EAST);
+        panel.add(btnLogout);
     }
+
 
     private void setImagenes() {
         imagenUrbanEssence.setBorder(null);
         ImageIcon icon = new ImageIcon("imagenes/logo.png");
         Image image = icon.getImage().getScaledInstance(300, 83, Image.SCALE_SMOOTH);
         imagenUrbanEssence.setIcon(new ImageIcon(image));
-        headerPanel.add(imagenUrbanEssence, BorderLayout.WEST);
+        headerPanel.add(imagenUrbanEssence);
     }
 
     private void configuracionMainPanel(JFrame perfil) {
