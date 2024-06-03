@@ -32,35 +32,35 @@ public class PantallaUsuario extends JFrame{
         perfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         perfil.setVisible(true);
         perfil.pack();
-
-        configurarLogo();
+        setLogo();
         configurarBotones();
     }
 
-    private void configurarLogo() {
-        ImageIcon logo = new ImageIcon("imagenes/Logo.png");
-        Image image = logo.getImage().getScaledInstance(230, 70, Image.SCALE_FAST);
-        imagenUrbanEssence.setIcon(new ImageIcon(image));
+    private void setLogo() {
+        ImageIcon icon = new ImageIcon("imagenes/logo.png");
+        Image imagen = icon.getImage().getScaledInstance(230, 70, Image.SCALE_SMOOTH);
+        imagenUrbanEssence.setIcon(new ImageIcon(imagen));
     }
 
     private void configurarBotones() {
-        btnCalendarioDeTareas.setUI(new BasicButtonUI());
-        btnCalendarioDeTareas.setBorder(null);
+        btnLogout.setUI(new BasicButtonUI());
+        btnLogout.setIcon(new ImageIcon("imagenes/iconoLogOut.png"));
+        btnLogout.setBorder(null);
 
         btnPerfil.setUI(new BasicButtonUI());
         btnPerfil.setBorder(null);
 
-        btnLogout.setUI(new BasicButtonUI());
-        btnLogout.setBorder(null);
+        btnCalendarioDeTareas.setUI(new BasicButtonUI());
+        btnCalendarioDeTareas.setBorder(null);
 
-        btnVistaGeneral.setUI(new BasicButtonUI());
-        btnVistaGeneral.setBorder(null);
+        btnHistorialDePedidos.setUI(new BasicButtonUI());
+        btnHistorialDePedidos.setBorder(null);
 
         btnEditarMisDatos.setUI(new BasicButtonUI());
         btnEditarMisDatos.setBorder(null);
 
-        btnHistorialDePedidos.setUI(new BasicButtonUI());
-        btnHistorialDePedidos.setBorder(null);
+        crearTareaButton.setUI(new BasicButtonUI());
+        crearTareaButton.setBorder(null);
     }
 
     public static void main(String[] args) {

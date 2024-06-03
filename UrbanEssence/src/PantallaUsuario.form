@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="PantallaUsuario">
-  <grid id="27dc6" binding="panelPrincipalPantallaUsuario" layout-manager="BorderLayout" hgap="0" vgap="10">
+  <grid id="27dc6" binding="panelPrincipalPantallaUsuario" layout-manager="BorderLayout" hgap="5" vgap="5">
     <constraints>
-      <xy x="20" y="20" width="800" height="800"/>
+      <xy x="20" y="20" width="800" height="805"/>
     </constraints>
     <properties>
       <background color="-1"/>
-      <minimumSize width="800" height="600"/>
       <preferredSize width="800" height="600"/>
       <requestFocusEnabled value="true"/>
       <verifyInputWhenFocusTarget value="true"/>
@@ -25,8 +24,6 @@
           <component id="82375" class="javax.swing.JLabel" binding="imagenUrbanEssence">
             <constraints border-constraint="West"/>
             <properties>
-              <background color="-1118482"/>
-              <foreground color="-1118482"/>
               <minimumSize width="230" height="70"/>
               <preferredSize width="230" height="70"/>
               <text value=""/>
@@ -36,8 +33,6 @@
             <constraints border-constraint="East"/>
             <properties>
               <background color="-1118482"/>
-              <minimumSize width="323" height="100"/>
-              <preferredSize width="323" height="100"/>
             </properties>
             <border type="none"/>
             <children>
@@ -69,8 +64,6 @@
             <constraints border-constraint="Center"/>
             <properties>
               <background color="-1118482"/>
-              <minimumSize width="0" height="100"/>
-              <preferredSize width="0" height="100"/>
             </properties>
             <border type="none"/>
             <children/>
@@ -83,8 +76,8 @@
         <properties>
           <background color="-394759"/>
           <foreground color="-1643009"/>
-          <minimumSize width="260" height="480"/>
-          <preferredSize width="260" height="480"/>
+          <minimumSize width="260" height="700"/>
+          <preferredSize width="260" height="700"/>
         </properties>
         <border type="none"/>
         <children>
@@ -143,6 +136,13 @@
               <text value="Historial de pedidos"/>
             </properties>
           </component>
+          <vspacer id="b95a3">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <preferred-size width="201" height="14"/>
+              </grid>
+            </constraints>
+          </vspacer>
           <component id="ece26" class="javax.swing.JButton" binding="btnEditarMisDatos">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
@@ -165,13 +165,6 @@
               <text value="Editar mis datos"/>
             </properties>
           </component>
-          <vspacer id="b95a3">
-            <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
-                <preferred-size width="201" height="14"/>
-              </grid>
-            </constraints>
-          </vspacer>
         </children>
       </grid>
       <grid id="fe88c" binding="main" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -179,17 +172,12 @@
         <constraints border-constraint="Center"/>
         <properties>
           <background color="-394759"/>
-          <minimumSize width="325" height="480"/>
-          <preferredSize width="325" height="480"/>
         </properties>
         <border type="none"/>
         <children>
           <grid id="5052c" binding="tareasPendientes" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <minimum-size width="-1" height="780"/>
-                <preferred-size width="-1" height="780"/>
-              </grid>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -214,8 +202,8 @@
                   <component id="b2c13" class="javax.swing.JButton" binding="crearTareaButton" default-binding="true">
                     <constraints border-constraint="South"/>
                     <properties>
-                      <background color="-5524801"/>
-                      <foreground color="-658185"/>
+                      <background color="-1118482"/>
+                      <foreground color="-16777216"/>
                       <text value="Crear tarea"/>
                     </properties>
                   </component>
@@ -225,10 +213,7 @@
           </grid>
           <grid id="365ae" binding="tareasAcabadas" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <minimum-size width="-1" height="780"/>
-                <preferred-size width="-1" height="780"/>
-              </grid>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -247,10 +232,7 @@
           </grid>
           <grid id="b1af9" binding="tareasEnCurso" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <minimum-size width="-1" height="780"/>
-                <preferred-size width="-1" height="780"/>
-              </grid>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -269,10 +251,7 @@
           </grid>
           <grid id="4ebc0" binding="tareasEnPruebas" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <minimum-size width="-1" height="780"/>
-                <preferred-size width="-1" height="780"/>
-              </grid>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
