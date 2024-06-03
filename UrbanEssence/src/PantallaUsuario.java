@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicButtonUI;
+import java.awt.*;
 
 public class PantallaUsuario extends JFrame{
     private JPanel headerPanel;
@@ -31,11 +33,34 @@ public class PantallaUsuario extends JFrame{
         perfil.setVisible(true);
         perfil.pack();
 
+        configurarLogo();
         configurarBotones();
     }
 
-    private void configurarBotones() {
+    private void configurarLogo() {
+        ImageIcon logo = new ImageIcon("imagenes/Logo.png");
+        Image image = logo.getImage().getScaledInstance(230, 70, Image.SCALE_FAST);
+        imagenUrbanEssence.setIcon(new ImageIcon(image));
+    }
 
+    private void configurarBotones() {
+        btnCalendarioDeTareas.setUI(new BasicButtonUI());
+        btnCalendarioDeTareas.setBorder(null);
+
+        btnPerfil.setUI(new BasicButtonUI());
+        btnPerfil.setBorder(null);
+
+        btnLogout.setUI(new BasicButtonUI());
+        btnLogout.setBorder(null);
+
+        btnVistaGeneral.setUI(new BasicButtonUI());
+        btnVistaGeneral.setBorder(null);
+
+        btnEditarMisDatos.setUI(new BasicButtonUI());
+        btnEditarMisDatos.setBorder(null);
+
+        btnHistorialDePedidos.setUI(new BasicButtonUI());
+        btnHistorialDePedidos.setBorder(null);
     }
 
     public static void main(String[] args) {
