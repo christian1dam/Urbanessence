@@ -49,7 +49,7 @@ public class PantallaPrincipalEmpleados extends JFrame{
         cargarTabla();
 
         editarBTN.addActionListener(e -> {
-            JDialog abrirEditor = new EditarDatosUsuario(this, "Editar empleado");
+            JDialog abrirEditor = new EditarEmpleado(this, "Editar empleado");
             abrirEditor.setVisible(true);
         });
 
