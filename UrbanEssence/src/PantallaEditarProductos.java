@@ -2,12 +2,12 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.util.ArrayList;
 
-public class PantallaEditarClientes extends JFrame{
+public class PantallaEditarProductos extends JFrame{
     private JPanel panelGeneral;
     private JButton btnPedidos;
-    private JButton btnClientes;
+    private JButton btnProductos;
     private JButton btnProveedor;
-    private JButton btnProducto;
+    private JButton btnClientes;
     private JButton btnTipo;
     private JButton btnTienda;
     private JButton btnEmpleado;
@@ -17,21 +17,29 @@ public class PantallaEditarClientes extends JFrame{
     private JButton btnGuardar;
     private JButton btnCerrar;
     private JLabel lblLogo;
-    private JTextField txtNombre;
-    private JTextField txtGenero;
-    private JTextField txtDireccion;
-    private JTextField txtTelefono;
-    private JTextField txtFNac;
-    private JLabel lblNombre;
-    private JLabel lblGenero;
-    private JLabel lblDireccion;
-    private JLabel lblTelefono;
-    private JLabel lblFNac;
     private JLabel lblTitulo;
+    private JLabel lblNombre;
+    private JLabel lblMarca;
+    private JLabel lblTalla;
+    private JLabel lblColor;
+    private JLabel lblMaterial;
+    private JLabel lblPrecio;
+    private JLabel lblIdTipo;
+    private JLabel lblCanitdad;
+    private JTextField txtNombre;
+    private JTextField txtMarca;
+    private JTextField txtTalla;
+    private JTextField txtColor;
+    private JTextField txtMaterial;
+    private JTextField txtPrecio;
+    private JTextField txtIdTipo;
+    private JTextField txtCantidad;
+    private JTextField txtIdProveedor;
+    private JLabel lblIdProveedor;
 
-    static ArrayList<Cliente> clientes = new ArrayList<>();
+    static ArrayList<Producto> productos = new ArrayList<>();
 
-    public PantallaEditarClientes() {
+    public PantallaEditarProductos() {
         super("Editar Clientes");
         setContentPane(panelGeneral);
         ImageIcon imageLogo = new ImageIcon("imagenes/Logo.png");
@@ -43,7 +51,7 @@ public class PantallaEditarClientes extends JFrame{
     }
 
     private void cargarIconos() {
-        ImageIcon iconoClientes = new ImageIcon("imagenes/iconoClientesBlanco.png");
+        ImageIcon iconoClientes = new ImageIcon("imagenes/iconoClientes.png");
         btnClientes.setIcon(iconoClientes);
 
         ImageIcon iconoPedidos = new ImageIcon("imagenes/iconoPedidos.png");
@@ -52,8 +60,8 @@ public class PantallaEditarClientes extends JFrame{
         ImageIcon iconoProveedores = new ImageIcon("imagenes/iconoProveedores.png");
         btnProveedor.setIcon(iconoProveedores);
 
-        ImageIcon iconoProductos = new ImageIcon("imagenes/iconoProductos.png");
-        btnProducto.setIcon(iconoProductos);
+        ImageIcon iconoProductos = new ImageIcon("imagenes/iconoProductosBlanco.png");
+        btnProductos.setIcon(iconoProductos);
 
         ImageIcon iconoTipo = new ImageIcon("imagenes/iconoTipo.png");
         btnTipo.setIcon(iconoTipo);
@@ -81,15 +89,15 @@ public class PantallaEditarClientes extends JFrame{
         btnPedidos.setBorder(null);
         btnPedidos.setContentAreaFilled(false);
 
-        btnClientes.setUI(new BasicButtonUI());
+        btnProductos.setUI(new BasicButtonUI());
 
         btnProveedor.setUI(new BasicButtonUI());
         btnProveedor.setBorder(null);
         btnProveedor.setContentAreaFilled(false);
 
-        btnProducto.setUI(new BasicButtonUI());
-        btnProducto.setBorder(null);
-        btnProducto.setContentAreaFilled(false);
+        btnClientes.setUI(new BasicButtonUI());
+        btnClientes.setBorder(null);
+        btnClientes.setContentAreaFilled(false);
 
         btnTipo.setUI(new BasicButtonUI());
         btnTipo.setBorder(null);

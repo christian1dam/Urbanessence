@@ -4,15 +4,16 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class DataManager {
-    private static ArrayList<Cliente> listClientes = new ArrayList<>();
-    private static ArrayList<Tienda> listTiendas = new ArrayList<>();
+    private static ArrayList<Ciudad> listCiudades = new ArrayList<>();
+    private static ArrayList<Producto> listProductos = new ArrayList<>();
 
-    public static boolean getClientes(){
+
+    public static boolean getCiudades(){
         if (DBManager.connect()){
             try {
-                ResultSet rs = DBManager.getClientes();
+                ResultSet rs = DBManager.getCiudades();
                 while (rs.next()){
-                    listClientes.add(new Cliente(rs.getInt(1), rs.getString(2), rs.getByte(3), rs.getString(4), rs.getInt(5), rs.getDate(6).toLocalDate()));
+                    listCiudades.add(new Ciudad(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4)));
                 }
                 rs.close();
                 DBManager.close();
@@ -25,16 +26,16 @@ public class DataManager {
         return false;
     }
 
-    public static ArrayList getListaClientes (){
-        return listClientes;
+    public static ArrayList getListaCiudades(){
+        return listCiudades;
     }
 
-    public static boolean getTiendas(){
+    public static boolean getProductos(){
         if (DBManager.connect()){
             try {
-                ResultSet rs = DBManager.getTiendas();
+                ResultSet rs = DBManager.getProductos();
                 while (rs.next()){
-                    listTiendas.add(new Tienda(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getTime(5).toLocalTime(), rs.getTime(6).toLocalTime(), rs.getInt(7), rs.getInt(8)));
+                    listProductos.add(new Producto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getDouble(7), rs.getInt(8), rs.getInt(9), rs.getInt(10)));
                 }
                 rs.close();
                 DBManager.close();
@@ -47,29 +48,7 @@ public class DataManager {
         return false;
     }
 
-    public static ArrayList getListaTiendas (){
-        return listTiendas;
-    }
-
-    public static int borrarCliente(int id){
-        int rs=0;
-        if (DBManager.connect()){
-            try {
-                rs = DBManager.borrarCliente(id);
-
-                if (rs == 1){
-                    for (int i = 0; i < listClientes.size(); i++) {
-                        if (listClientes.get(i).getId() == id){
-                            listClientes.remove(i);
-                        }
-                    }
-                }
-            }catch (SQLException e){
-                DBManager.close();
-                e.printStackTrace();
-                return 0;
-            }
-        }
-        return rs;
+    public static ArrayList getListaProductos(){
+        return listProductos;
     }
 }

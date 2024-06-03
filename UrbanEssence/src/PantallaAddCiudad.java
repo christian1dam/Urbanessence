@@ -2,41 +2,33 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.util.ArrayList;
 
-public class PantallaEditarTiendas extends JFrame{
+public class PantallaAddCiudad extends JFrame{
     private JPanel panelGeneral;
-    private JButton btnCliente;
-    private JButton btnTiendas;
-    private JButton btnProveedor;
-    private JButton btnProducto;
-    private JButton btnTipo;
     private JButton btnPedidos;
-    private JButton btnEmpleado;
     private JButton btnCiudad;
+    private JButton btnProveedor;
+    private JButton btnClientes;
+    private JButton btnTipo;
+    private JButton btnTienda;
+    private JButton btnEmpleado;
+    private JButton btnProductos;
     private JButton btnPerfil;
     private JButton btnLogout;
     private JButton btnGuardar;
     private JButton btnCerrar;
     private JLabel lblLogo;
-    private JTextField txtNombre;
-    private JTextField txtDireccion;
-    private JTextField txtTelefono;
-    private JTextField txtHApertura;
-    private JTextField txtHCierre;
-    private JTextField txtIdCiudad;
-    private JTextField txtNEmpleados;
-    private JLabel lblNombre;
-    private JLabel lblDireccion;
-    private JLabel lblTelefono;
-    private JLabel lblHApertura;
-    private JLabel lblHCierre;
-    private JLabel lblNEmpleados;
-    private JLabel lblIdCiudad;
     private JLabel lblTitulo;
+    private JLabel lblNombre;
+    private JLabel lblProvincia;
+    private JLabel lblNumHabitantes;
+    private JTextField txtNombre;
+    private JTextField txtMarca;
+    private JTextField txtTalla;
 
-    static ArrayList<Tienda> tiendas = new ArrayList<>();
+    static ArrayList<Ciudad> ciudades = new ArrayList<>();
 
-    public PantallaEditarTiendas() {
-        super("Editar Tiendas");
+    public PantallaAddCiudad() {
+        super("Editar Clientes");
         setContentPane(panelGeneral);
         ImageIcon imageLogo = new ImageIcon("imagenes/Logo.png");
         lblLogo.setIcon(imageLogo);
@@ -48,7 +40,7 @@ public class PantallaEditarTiendas extends JFrame{
 
     private void cargarIconos() {
         ImageIcon iconoClientes = new ImageIcon("imagenes/iconoClientes.png");
-        btnCliente.setIcon(iconoClientes);
+        btnClientes.setIcon(iconoClientes);
 
         ImageIcon iconoPedidos = new ImageIcon("imagenes/iconoPedidos.png");
         btnPedidos.setIcon(iconoPedidos);
@@ -57,18 +49,18 @@ public class PantallaEditarTiendas extends JFrame{
         btnProveedor.setIcon(iconoProveedores);
 
         ImageIcon iconoProductos = new ImageIcon("imagenes/iconoProductos.png");
-        btnProducto.setIcon(iconoProductos);
+        btnProductos.setIcon(iconoProductos);
 
         ImageIcon iconoTipo = new ImageIcon("imagenes/iconoTipo.png");
         btnTipo.setIcon(iconoTipo);
 
-        ImageIcon iconoTiendas = new ImageIcon("imagenes/iconoTiendasBlanco.png");
-        btnTiendas.setIcon(iconoTiendas);
+        ImageIcon iconoTiendas = new ImageIcon("imagenes/iconoTiendas.png");
+        btnTienda.setIcon(iconoTiendas);
 
         ImageIcon iconoEmpleados = new ImageIcon("imagenes/iconoEmpleados.png");
         btnEmpleado.setIcon(iconoEmpleados);
 
-        ImageIcon iconoCiudades = new ImageIcon("imagenes/iconoCiudades.png");
+        ImageIcon iconoCiudades = new ImageIcon("imagenes/iconoCiudadesBlanco.png");
         btnCiudad.setIcon(iconoCiudades);
 
 
@@ -81,35 +73,35 @@ public class PantallaEditarTiendas extends JFrame{
     }
 
     private void formatoBotones() {
-        btnCliente.setUI(new BasicButtonUI());
-        btnCliente.setBorder(null);
-        btnCliente.setContentAreaFilled(false);
+        btnPedidos.setUI(new BasicButtonUI());
+        btnPedidos.setBorder(null);
+        btnPedidos.setContentAreaFilled(false);
 
-        btnTiendas.setUI(new BasicButtonUI());
+        btnCiudad.setUI(new BasicButtonUI());
 
         btnProveedor.setUI(new BasicButtonUI());
         btnProveedor.setBorder(null);
         btnProveedor.setContentAreaFilled(false);
 
-        btnProducto.setUI(new BasicButtonUI());
-        btnProducto.setBorder(null);
-        btnProducto.setContentAreaFilled(false);
+        btnClientes.setUI(new BasicButtonUI());
+        btnClientes.setBorder(null);
+        btnClientes.setContentAreaFilled(false);
 
         btnTipo.setUI(new BasicButtonUI());
         btnTipo.setBorder(null);
         btnTipo.setContentAreaFilled(false);
 
-        btnPedidos.setUI(new BasicButtonUI());
-        btnPedidos.setBorder(null);
-        btnPedidos.setContentAreaFilled(false);
+        btnTienda.setUI(new BasicButtonUI());
+        btnTienda.setBorder(null);
+        btnTienda.setContentAreaFilled(false);
 
         btnEmpleado.setUI(new BasicButtonUI());
         btnEmpleado.setBorder(null);
         btnEmpleado.setContentAreaFilled(false);
 
-        btnCiudad.setUI(new BasicButtonUI());
-        btnCiudad.setBorder(null);
-        btnCiudad.setContentAreaFilled(false);
+        btnProductos.setUI(new BasicButtonUI());
+        btnProductos.setBorder(null);
+        btnProductos.setContentAreaFilled(false);
 
         btnGuardar.setUI(new BasicButtonUI());
         btnGuardar.setFocusPainted(false);

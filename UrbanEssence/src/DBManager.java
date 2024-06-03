@@ -11,9 +11,8 @@ public class DBManager {
         private static final String DB_USER = "root";
         private static final String DB_PASS = "";
 
-    private static final String SQL_GET_CLIENTES = "SELECT * from cliente";
-    private static final String SQL_GET_TIENDAS = "SELECT * from tienda";
-    private static final String SQL_DELETE_CLIENTE = "DELETE FROM cliente WHERE cliente.CODIGO = ?";
+    private static final String SQL_GET_CIUDADES = "SELECT * from ciudad";
+    private static final String SQL_GET_PRODUCTOS = "SELECT * from producto";
 
 
     public boolean loadDriver() {
@@ -53,23 +52,15 @@ public class DBManager {
         }
     }
 
-    public static ResultSet getClientes () throws SQLException {
+    public static ResultSet getCiudades () throws SQLException {
         Statement stat = conn.createStatement();
-        ResultSet rs = stat.executeQuery(SQL_GET_CLIENTES);
+        ResultSet rs = stat.executeQuery(SQL_GET_CIUDADES);
         return rs;
     }
 
-    public static ResultSet getTiendas () throws SQLException {
+    public static ResultSet getProductos () throws SQLException {
         Statement stat = conn.createStatement();
-        ResultSet rs = stat.executeQuery(SQL_GET_TIENDAS);
+        ResultSet rs = stat.executeQuery(SQL_GET_PRODUCTOS);
         return rs;
     }
-
-    public static int borrarCliente(int id) throws SQLException{
-        try (PreparedStatement pstmt = conn.prepareStatement(SQL_DELETE_CLIENTE)){
-            pstmt.setInt(1, id);
-            return pstmt.executeUpdate();
-        }
-    }
-
 }

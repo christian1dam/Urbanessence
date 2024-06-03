@@ -1,17 +1,16 @@
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class PantallaTiendas extends JFrame{
+public class PantallaProductos extends JFrame{
     private JPanel panelGeneral;
     private JButton btnPedido;
-    private JButton btnTiendas;
+    private JButton btnProductos;
     private JButton btnProveedor;
-    private JButton btnProducto;
+    private JButton btnTiendas;
     private JButton btnTipo;
     private JButton btnClientes;
     private JButton btnEmpleado;
@@ -26,10 +25,10 @@ public class PantallaTiendas extends JFrame{
     private JTable tabla;
     private JButton btnBuscar;
 
-    static ArrayList<Tienda> tiendas = new ArrayList<>();
+    static ArrayList<Producto> productos = new ArrayList<>();
 
-    public PantallaTiendas() {
-        super("Panel tiendas");
+    public PantallaProductos() {
+        super("Panel Productos");
         setContentPane(panelGeneral);
         ImageIcon imageLogo = new ImageIcon("imagenes/Logo.png");
         lblLogo.setIcon(imageLogo);
@@ -37,14 +36,28 @@ public class PantallaTiendas extends JFrame{
         crearTabla();
         cargarIconos();
         formatoBotones();
-        cargarTiendas();
+        cargarProdcutos();
         btnAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        JFrame frame = new PantallaEditarTiendas();
+                        JFrame frame = new PantallaEditarProductos();
+                        frame.setVisible(true);
+                        frame.setSize(745,620);
+                        frame.setLocationRelativeTo(null);
+                    }
+                });
+            }
+        });
+        btnEdit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaEditarProductos();
                         frame.setVisible(true);
                         frame.setSize(745,620);
                         frame.setLocationRelativeTo(null);
@@ -57,6 +70,7 @@ public class PantallaTiendas extends JFrame{
     private void cargarIconos() {
         ImageIcon iconoClientes = new ImageIcon("imagenes/iconoClientes.png");
         btnClientes.setIcon(iconoClientes);
+        btnClientes.setUI(new BasicButtonUI());
 
         ImageIcon iconoPedidos = new ImageIcon("imagenes/iconoPedidos.png");
         btnPedido.setIcon(iconoPedidos);
@@ -65,15 +79,14 @@ public class PantallaTiendas extends JFrame{
         ImageIcon iconoProveedores = new ImageIcon("imagenes/iconoProveedores.png");
         btnProveedor.setIcon(iconoProveedores);
 
-        ImageIcon iconoProductos = new ImageIcon("imagenes/iconoProductos.png");
-        btnProducto.setIcon(iconoProductos);
+        ImageIcon iconoProductos = new ImageIcon("imagenes/iconoProductosBlanco.png");
+        btnProductos.setIcon(iconoProductos);
 
         ImageIcon iconoTipo = new ImageIcon("imagenes/iconoTipo.png");
         btnTipo.setIcon(iconoTipo);
 
-        ImageIcon iconoTiendas = new ImageIcon("imagenes/iconoTiendasBlanco.png");
+        ImageIcon iconoTiendas = new ImageIcon("imagenes/iconoTiendas.png");
         btnTiendas.setIcon(iconoTiendas);
-        btnTiendas.setUI(new BasicButtonUI());
 
         ImageIcon iconoEmpleados = new ImageIcon("imagenes/iconoEmpleados.png");
         btnEmpleado.setIcon(iconoEmpleados);
@@ -120,8 +133,8 @@ public class PantallaTiendas extends JFrame{
         btnProveedor.setBorder(null);
         btnProveedor.setContentAreaFilled(false);
 
-        btnProducto.setBorder(null);
-        btnProducto.setContentAreaFilled(false);
+        btnTiendas.setBorder(null);
+        btnTiendas.setContentAreaFilled(false);
 
         btnTipo.setBorder(null);
         btnTipo.setContentAreaFilled(false);
@@ -141,37 +154,34 @@ public class PantallaTiendas extends JFrame{
     }
 
 
-    public void cargarTiendas (){
-        if (DataManager.getTiendas()){
-            tiendas = DataManager.getListaTiendas();
+    public void cargarProdcutos (){
+        if (DataManager.getProductos()){
+            productos = DataManager.getListaProductos();
             crearTabla();
         }
     }
 
     private void crearTabla() {
-        String[][] data = new String[tiendas.size()][8];
+        String[][] data = new String[productos.size()][8];
 
-        for (int i = 0; i < tiendas.size(); i++) {
-            data[i][0] = String.valueOf(tiendas.get(i).getId());
-            data[i][1] = String.valueOf(tiendas.get(i).getNombre());
-            data[i][2] = String.valueOf(tiendas.get(i).getDireccion());
-            data[i][3] = String.valueOf(tiendas.get(i).getTelefono());
-            data[i][4] = String.valueOf(tiendas.get(i).gethApertura());
-            data[i][5] = String.valueOf(tiendas.get(i).gethCierre());
-            data[i][6] = String.valueOf(tiendas.get(i).getNumEmpleados());
-            data[i][7] = String.valueOf(tiendas.get(i).getIdCiudad());
+        for (int i = 0; i < productos.size(); i++) {
+            data[i][0] = String.valueOf(productos.get(i).getId());
+            data[i][1] = productos.get(i).getNombre();
+            data[i][2] = productos.get(i).getMarca();
+            data[i][3] = productos.get(i).getTalla();
+            data[i][4] = productos.get(i).getMaterial();
+            data[i][5] = String.valueOf(productos.get(i).getPrecio());
+            data[i][6] = String.valueOf(productos.get(i).getIdTipo());
+            data[i][7] = String.valueOf(productos.get(i).getIdProveedor());
+            data[i][7] = String.valueOf(productos.get(i).getCantidad());
         }
 
         tabla.setModel(new DefaultTableModel(
                 data,
-                new String[]{"ID", "NOMBRE", "DIRECCION", "TELEFONO", "H.APERTURA", "H.CIERRE", "N. EMPLEADOS", "ID.CIUDAD"}
+                new String[]{"ID", "NOMBRE", "MARCA", "TALLA", "COLOR", "MATERIAL", "PRECIO", "IDTIPO", "CANTIDAD"}
         ));
         tabla.getTableHeader().setReorderingAllowed(false);
         tabla.setEnabled(true);
         tabla.setDefaultEditor(Object.class, null);
-    }
-
-    public static void main(String[] args) {
-
     }
 }
