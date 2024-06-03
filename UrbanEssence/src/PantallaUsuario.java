@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
 
+import static javax.swing.SwingUtilities.invokeLater;
+
 public class PantallaUsuario extends JFrame{
     private JPanel headerPanel;
     private JLabel imagenUrbanEssence;
@@ -37,8 +39,14 @@ public class PantallaUsuario extends JFrame{
         perfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         perfil.setVisible(true);
         perfil.pack();
+        perfil.setLocationRelativeTo(null);
         setLogo();
         configurarBotones();
+
+        btnEditarMisDatos.addActionListener(e -> {
+            JDialog editarDatos = new EditarDatosUsuario(this, "Tú perfil");
+            editarDatos.setVisible(true);
+        });
     }
 
     private void setLogo() {
@@ -72,6 +80,6 @@ public class PantallaUsuario extends JFrame{
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(PantallaUsuario::new);
+        invokeLater(PantallaUsuario::new);
     }
 }
