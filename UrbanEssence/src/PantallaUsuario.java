@@ -25,6 +25,11 @@ public class PantallaUsuario extends JFrame{
     private JPanel tareasEnCurso;
     private JPanel tareasEnPruebas;
     private JPanel crearTareaPanel;
+    private JPanel panelLogo;
+    private JPanel fotoYNombrePanel;
+    private JLabel fotoUsuario;
+    private JLabel NombreUsuario;
+    private JLabel FechaIncorporacion;
 
     public PantallaUsuario(){
         JFrame perfil = new JFrame("Tu perfil");
@@ -60,7 +65,10 @@ public class PantallaUsuario extends JFrame{
         btnEditarMisDatos.setBorder(null);
 
         crearTareaButton.setUI(new BasicButtonUI());
-        crearTareaButton.setBorder(null);
+        crearTareaButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
+
+        btnVistaGeneral.setUI(new BasicButtonUI());
+        btnVistaGeneral.setBorder(null);
     }
 
     public static void main(String[] args) {
