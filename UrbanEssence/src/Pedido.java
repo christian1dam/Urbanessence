@@ -1,19 +1,19 @@
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Pedido {
-//    "ID", "Fecha", "Total pedido", "Estado", "Cliente ID", "ProductoID"
-        private int id;
-        private Date fecha;
-        private Double totalPedido;
-        private int estado;
-        private int idCliente;
-        private int idEmpleado;
+    private int id;
+    private LocalDate fecha;
+    private String estado;
+    private double totalPedido;
+    private int idCliente;
+    private int idEmpleado;
 
-    public Pedido(int id, Date fecha, Double totalPedido, int estado, int idCliente, int idEmpleado) {
+    public Pedido(int id, LocalDate fecha, String estado, double totalPedido, int idCliente, int idEmpleado) {
         this.id = id;
         this.fecha = fecha;
-        this.totalPedido = totalPedido;
         this.estado = estado;
+        this.totalPedido = totalPedido;
         this.idCliente = idCliente;
         this.idEmpleado = idEmpleado;
     }
@@ -22,59 +22,23 @@ public class Pedido {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public Double getTotalPedido() {
-        return totalPedido;
-    }
-
-    public void setTotalPedido(Double totalPedido) {
-        this.totalPedido = totalPedido;
-    }
-
-    public int getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(int estado) {
-        this.estado = estado;
+    public double getTotalPedido() {
+        return totalPedido;
     }
 
     public int getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-    }
-
     public int getIdEmpleado() {
         return idEmpleado;
-    }
-
-    public void setIdEmpleado(int idEmpleado) {
-        this.idEmpleado = idEmpleado;
-    }
-
-    @Override
-    public String toString() {
-        return "Pedido{" +
-                "id=" + id +
-                ", fecha=" + fecha +
-                ", totalPedido=" + totalPedido +
-                ", estado=" + estado +
-                ", idCliente=" + idCliente +
-                ", idEmpleado=" + idEmpleado +
-                '}';
     }
 }
