@@ -72,15 +72,7 @@ public class DBManager {
         }
     }
 
-    public static void close() {
-        if (conn != null){
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
+
 
     /*** CLIENTES ***/
     public static ResultSet getClientes() {

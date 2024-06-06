@@ -49,6 +49,16 @@ public class PantallaEditarPedidos extends JFrame{
         btnCerrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaPedidos();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
                 dispose();
             }
         });
@@ -78,11 +88,21 @@ public class PantallaEditarPedidos extends JFrame{
                 } catch (NumberFormatException | DateTimeParseException ex) {
                     ex.printStackTrace();
                 }
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaPedidos();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
                 dispose();
             }
         });
 
-        btnProveedor.addActionListener(new ActionListener() {
+        /*btnProveedor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SwingUtilities.invokeLater(new Runnable() {
@@ -114,7 +134,7 @@ public class PantallaEditarPedidos extends JFrame{
                 });
                 dispose();
             }
-        });
+        });*/
     }
 
     public static void pasarDatos(String idStr, String fechaStr, String totalPedidoStr, String estadoStr, String idClienteStr, String idEmpleadoStr) {
@@ -124,8 +144,8 @@ public class PantallaEditarPedidos extends JFrame{
         estado = estadoStr;
         idCliente = idClienteStr;
         idEmpleado = idEmpleadoStr;
-        System.out.println("adada" +id + fecha + totalPedido + estado + idCliente + idEmpleado);
     }
+
     private void setDatos() {
         txtFecha.setText(fecha);
         txtTotal.setText(totalPedido);

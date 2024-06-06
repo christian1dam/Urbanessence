@@ -47,7 +47,7 @@ public class DataManager {
     }*/
 
     /*** TIPOS ***/
-    private static ArrayList<Tipo> tipos = new ArrayList<>();
+    /*private static ArrayList<Tipo> tipos = new ArrayList<>();
 
     public static boolean getTipos(){
         if (DBManager.connect()){
@@ -85,7 +85,7 @@ public class DataManager {
 
     public static int idAutoGenTipo() {
         return DBManager.idAutoGenTipo();
-    }
+    }*/
 
     /*** CIUDADES ***/
     /*private static ArrayList<Ciudad> ciudades = new ArrayList<>();
@@ -252,7 +252,7 @@ public class DataManager {
     }*/
 
     /*** PROVEEDORES ***/
-    private static ArrayList<Proveedor> proveedores = new ArrayList<>();
+    /*private static ArrayList<Proveedor> proveedores = new ArrayList<>();
 
     public static boolean getProveedores(){
         if (DBManager.connect()){
@@ -290,7 +290,7 @@ public class DataManager {
 
     public static int idAutoGenProveedor() {
         return DBManager.idAutoGenProveedor();
-    }
+    }*/
 
     /*** PEDIDOS ***/
     private static ArrayList<Pedido> pedidos = new ArrayList<>();
@@ -303,7 +303,7 @@ public class DataManager {
                     pedidos.add(new Pedido(rs.getInt(1), rs.getDate(2).toLocalDate(), rs.getDouble(3), rs.getInt(4), rs.getInt(5), rs.getInt(6)));
                 }
                 rs.close();
-                DBManager.close();
+                //DBManager.close();
                 return true;
             } catch (SQLException e) {
                 e.printStackTrace();

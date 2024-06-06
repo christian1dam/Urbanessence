@@ -52,11 +52,12 @@ public class PantallaPedidos extends JFrame{
                         frame.setResizable(false);
                     }
                 });
+                dispose();
             }
         });
 
 
-        btnProveedor.addActionListener(new ActionListener() {
+        /*btnProveedor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SwingUtilities.invokeLater(new Runnable() {
@@ -88,7 +89,7 @@ public class PantallaPedidos extends JFrame{
                 });
                 dispose();
             }
-        });
+        });*/
 
         tabla.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent mouseEvent) {
@@ -96,21 +97,6 @@ public class PantallaPedidos extends JFrame{
                 rellenarDatos(mouseEvent);
             }
         });
-    }
-
-    public static void main(String[] args) {
-        if (DBManager.loadDriver()) {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    JFrame frame = new PantallaPedidos();
-                    frame.setVisible(true);
-                    frame.setSize(1080,670);
-                    frame.setLocationRelativeTo(null);
-                    frame.setResizable(false);
-                }
-            });
-        }
     }
 
     private void rellenarDatos(MouseEvent mouseEvent) {
@@ -126,7 +112,6 @@ public class PantallaPedidos extends JFrame{
             estado = table.getModel().getValueAt(row, 3).toString();
             idCliente = table.getModel().getValueAt(row, 4).toString();
             idEmpleado = table.getModel().getValueAt(row, 5).toString();
-            System.out.println(id + fecha + totalPedido + estado + idCliente + idEmpleado);
             PantallaEditarPedidos.pasarDatos(id, fecha, totalPedido, estado, idCliente, idEmpleado);
         }
     }
@@ -243,5 +228,20 @@ public class PantallaPedidos extends JFrame{
         tabla.getTableHeader().setReorderingAllowed(false);
         tabla.setEnabled(true);
         tabla.setDefaultEditor(Object.class, null);
+    }
+
+    public static void main(String[] args) {
+        if (DBManager.loadDriver()) {
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    JFrame frame = new PantallaPedidos();
+                    frame.setVisible(true);
+                    frame.setSize(1080,670);
+                    frame.setLocationRelativeTo(null);
+                    frame.setResizable(false);
+                }
+            });
+        }
     }
 }
