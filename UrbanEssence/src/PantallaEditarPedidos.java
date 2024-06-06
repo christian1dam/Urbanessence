@@ -59,6 +59,7 @@ public class PantallaEditarPedidos extends JFrame{
                         frame.setResizable(false);
                     }
                 });
+                resDatos();
                 dispose();
             }
         });
@@ -98,6 +99,7 @@ public class PantallaEditarPedidos extends JFrame{
                         frame.setResizable(false);
                     }
                 });
+                resDatos();
                 dispose();
             }
         });
@@ -235,5 +237,9 @@ public class PantallaEditarPedidos extends JFrame{
         btnPerfil.setUI(new BasicButtonUI());
         btnPerfil.setFocusPainted(false);
         btnPerfil.setBorderPainted(false);
+    }
+
+    private void resDatos() {
+        id = ""; fecha = ""; totalPedido = ""; estado = ""; idCliente = ""; idEmpleado = "";
     }
 }

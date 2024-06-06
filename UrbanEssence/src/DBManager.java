@@ -48,6 +48,7 @@ public class DBManager {
     private static final String SQL_DELETE_PRODUCTOS = "DELETE FROM producto WHERE id = ?";
     private static final String SQL_DELETE_PROVEEDORES = "DELETE FROM proveedor WHERE id = ?";
     private static final String SQL_DELETE_PEDIDOS = "DELETE FROM pedido WHERE id = ?";
+    private static final String SQL_DELETE_PEDIDO_PRODUCTO = "DELETE FROM pedidoProducto WHERE idPedido = ?";
 
     public static boolean loadDriver() {
             try {
@@ -170,8 +171,21 @@ public class DBManager {
         }
     }
 
+    public static void borrarPedidoProducto(int id) {
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(SQL_DELETE_PEDIDO_PRODUCTO);
+            pstmt.setInt(1, id);
+
+            pstmt.executeUpdate();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void borrarPedido(int id) {
         try {
+            borrarPedidoProducto(id);
             PreparedStatement pstmt = conn.prepareStatement(SQL_DELETE_PEDIDOS);
             pstmt.setInt(1, id);
 

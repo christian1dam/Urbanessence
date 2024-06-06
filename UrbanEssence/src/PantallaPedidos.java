@@ -25,16 +25,18 @@ public class PantallaPedidos extends JFrame{
     private JLabel lblLogo;
     private JTable tabla;
     private JButton btnBuscar;
+    private JButton btnBorrar;
 
     static ArrayList<Pedido> pedidos = new ArrayList<>();
+    static String id, fecha, totalPedido, estado, idCliente, idEmpleado;
 
     public PantallaPedidos() {
         super("Panel Pedidos");
         setContentPane(panelGeneral);
+        pedidos.clear();
         cargarClientes();
         ImageIcon imageLogo = new ImageIcon("imagenes/Logo.png");
         lblLogo.setIcon(imageLogo);
-
         crearTabla();
         cargarIconos();
         formatoBotones();
@@ -53,6 +55,24 @@ public class PantallaPedidos extends JFrame{
                     }
                 });
                 dispose();
+            }
+        });
+
+        btnBorrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int idP = Integer.parseInt(id);
+                    DataManager.borrarPedido(idP);
+                    for (int i = 0; i < pedidos.size(); i++) {
+                        if (pedidos.get(i).getId() == idP) {
+                            pedidos.remove(pedidos.get(i));
+                        }
+                    }
+                    crearTabla();
+                } catch (NumberFormatException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -99,12 +119,12 @@ public class PantallaPedidos extends JFrame{
         });
     }
 
+
     private void rellenarDatos(MouseEvent mouseEvent) {
         JTable table = (JTable) mouseEvent.getSource();
         Point p = mouseEvent.getPoint();
         int row = table.rowAtPoint(p);
         if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
-            String id, fecha, totalPedido, estado, idCliente, idEmpleado;
 
             id = table.getModel().getValueAt(row, 0).toString();
             fecha = table.getModel().getValueAt(row, 1).toString();
@@ -115,7 +135,7 @@ public class PantallaPedidos extends JFrame{
             PantallaEditarPedidos.pasarDatos(id, fecha, totalPedido, estado, idCliente, idEmpleado);
         }
     }
-    static String id, fecha, totalPedido, estado, idCliente, idEmpleado;
+
     private void cargarIconos() {
         ImageIcon iconoClientes = new ImageIcon("imagenes/iconoClientes.png");
         btnCliente.setIcon(iconoClientes);
