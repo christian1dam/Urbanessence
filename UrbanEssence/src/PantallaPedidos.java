@@ -209,6 +209,10 @@ public class PantallaPedidos extends JFrame{
         btnEdit.setFocusPainted(false);
         btnEdit.setBorderPainted(false);
 
+        btnBorrar.setUI(new BasicButtonUI());
+        btnBorrar.setFocusPainted(false);
+        btnBorrar.setBorderPainted(false);
+
         btnLogout.setBackground(null);
         btnLogout.setBorder(null);
         btnLogout.setContentAreaFilled(false);
