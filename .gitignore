@@ -1,2 +1,8 @@
 ##THIS FILE MUST NOT ME COMMITED NOR PUSHED TO THE REPO
 Figma_Urbanessence.pdf
+
+##ARCHIVOS INTELLIJ
+IntellIJ/Urbanessence/.idea
+IntellIJ/Urbanessence/out
+IntellIJ/Urbanessence/Urbanessence.iml
+IntellIJ/Urbanessence/.gitignore
