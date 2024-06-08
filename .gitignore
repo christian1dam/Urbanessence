@@ -1,2 +1,16 @@
 ##THIS FILE MUST NOT ME COMMITED NOR PUSHED TO THE REPO
 Figma_Urbanessence.pdf
+
+##INTELLIJ PROJECT
+Urbanessence/.idea/
+Urbanessence/out
+Urbanessence/.gitignore
+Urbanessence/Urbanessence.iml
+Urbanessence/!**/src/main/**/out/
+Urbanessence/!**/src/test/**/out/
+
+
+#VSCode
+.vscode/
+Urbanessence/.vscode
+Urbanessence/src/.vscode
