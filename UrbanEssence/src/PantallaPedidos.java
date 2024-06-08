@@ -1,11 +1,9 @@
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 public class PantallaPedidos extends JFrame{
@@ -24,8 +22,8 @@ public class PantallaPedidos extends JFrame{
     private JTextField buscarTextField;
     private JLabel lblLogo;
     private JTable tabla;
-    private JButton btnBuscar;
     private JButton btnBorrar;
+    private JComboBox boxBuscar;
 
     static ArrayList<Pedido> pedidos = new ArrayList<>();
     static String id, fecha, totalPedido, estado, idCliente, idEmpleado;
@@ -37,9 +35,12 @@ public class PantallaPedidos extends JFrame{
         cargarClientes();
         ImageIcon imageLogo = new ImageIcon("imagenes/Logo.png");
         lblLogo.setIcon(imageLogo);
+
         crearTabla();
         cargarIconos();
         formatoBotones();
+
+        boxBuscar.setModel(new DefaultComboBoxModel(new String []{"ID", "FECHA", "TOTAL PEDIDO", "ESTADO", "ID CLIENTE", "ID EMPLEADO"}));
 
         btnEdit.addActionListener(new ActionListener() {
             @Override
@@ -117,8 +118,54 @@ public class PantallaPedidos extends JFrame{
                 rellenarDatos(mouseEvent);
             }
         });
+
+        buscarTextField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                filtrarTabla();
+            }
+        });
     }
 
+    private void filtrarTabla() {
+        String parametroBusqueda = buscarTextField.getText();
+        String campoBusqueda = boxBuscar.getSelectedItem().toString();
+
+        // obtenemos el modelo de la tabla para poder trabajar con los datos y la estructura de la tabla
+        DefaultTableModel modeloTabla = (DefaultTableModel) tabla.getModel();
+
+        // el TableRowSorter habilita la funcionalidad de ordenar y filtrar las filas de la tabla
+        TableRowSorter<DefaultTableModel> filtroTabla = new TableRowSorter<>(modeloTabla);
+        tabla.setRowSorter(filtroTabla);
+
+        if (parametroBusqueda.length() == 0) {
+            filtroTabla.setRowFilter(null);
+        } else {
+            int campo = -1;
+            switch (campoBusqueda) {
+                case "ID":
+                    campo = 0;
+                    break;
+                case "FECHA":
+                    campo = 1;
+                    break;
+                case "TOTAL PEDIDO":
+                    campo = 2;
+                    break;
+                case "ESTADO":
+                    campo = 3;
+                    break;
+                case "ID CLIENTE":
+                    campo = 4;
+                    break;
+                case "ID EMPLEADO":
+                    campo = 5;
+                    break;
+            }
+            //"(?i)" regex para no distinguir entre mayúsculas y minúsculas al buscar
+            filtroTabla.setRowFilter(RowFilter.regexFilter("(?i)" + parametroBusqueda, campo));
+        }
+    }
 
     private void rellenarDatos(MouseEvent mouseEvent) {
         JTable table = (JTable) mouseEvent.getSource();
@@ -168,10 +215,6 @@ public class PantallaPedidos extends JFrame{
 
         ImageIcon iconoPerfil = new ImageIcon("imagenes/iconoPerfil.png");
         btnPerfil.setIcon(iconoPerfil);
-
-        ImageIcon iconoLupa = new ImageIcon("imagenes/iconoLupa.png");
-        btnBuscar.setIcon(iconoLupa);
-
     }
 
     private void formatoBotones() {
@@ -220,10 +263,6 @@ public class PantallaPedidos extends JFrame{
         btnPerfil.setUI(new BasicButtonUI());
         btnPerfil.setFocusPainted(false);
         btnPerfil.setBorderPainted(false);
-
-        btnBuscar.setUI(new BasicButtonUI());
-        btnBuscar.setFocusPainted(false);
-        btnBuscar.setBorderPainted(false);
     }
 
     public  void cargarClientes(){
