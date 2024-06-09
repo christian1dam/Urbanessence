@@ -12,7 +12,7 @@ public class Pedido {
         this.id = id;
         this.fecha = fecha;
         this.totalPedido = totalPedido;
-        setDiabetico(estado);
+        setEstado(estado);
         this.idCliente = idCliente;
         this.idEmpleado = idEmpleado;
     }
@@ -33,7 +33,7 @@ public class Pedido {
         return estado;
     }
 
-    public void setDiabetico(int estado) {
+    public void setEstado(int estado) {
         if (estado == 0 || estado == 1) {
             if (estado == 0) this.estado = "No entregado";
             else this.estado = "Entregado";
