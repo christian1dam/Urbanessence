@@ -118,7 +118,7 @@
           </grid>
         </children>
       </grid>
-      <grid id="42ff" binding="asideLeft" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="42ff" binding="asideLeft" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="West"/>
         <properties>
@@ -148,31 +148,9 @@
               <text value="Vista general"/>
             </properties>
           </component>
-          <component id="ca2b7" class="javax.swing.JButton" binding="btnCalendarioDeTareas">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
-                <minimum-size width="230" height="-1"/>
-                <preferred-size width="230" height="50"/>
-              </grid>
-            </constraints>
-            <properties>
-              <background color="-1"/>
-              <borderPainted value="true"/>
-              <contentAreaFilled value="true"/>
-              <doubleBuffered value="false"/>
-              <enabled value="true"/>
-              <focusPainted value="false"/>
-              <focusable value="true"/>
-              <font size="16"/>
-              <foreground color="-16777216"/>
-              <horizontalAlignment value="0"/>
-              <opaque value="true"/>
-              <text value="Calendario de Tareas"/>
-            </properties>
-          </component>
           <component id="39d87" class="javax.swing.JButton" binding="btnHistorialDePedidos">
             <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
                 <preferred-size width="230" height="50"/>
               </grid>
             </constraints>
@@ -186,7 +164,7 @@
           </component>
           <vspacer id="b95a3">
             <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
                 <preferred-size width="201" height="14"/>
               </grid>
             </constraints>
@@ -215,7 +193,7 @@
           </component>
         </children>
       </grid>
-      <grid id="fe88c" binding="main" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="fe88c" binding="main" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="Center"/>
         <properties>
@@ -230,15 +208,16 @@
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="5d8cc" binding="crearTareaPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+              <grid id="b94a3" binding="headerPendiente" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints border-constraint="North"/>
                 <properties/>
-                <border type="line">
-                  <color color="-262167"/>
-                </border>
+                <border type="none"/>
                 <children>
-                  <component id="5b8de" class="javax.swing.JLabel" binding="tareaPendienteLabel">
-                    <constraints border-constraint="North"/>
+                  <component id="746bf" class="javax.swing.JLabel" binding="tareaPendienteLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
                     <properties>
                       <horizontalAlignment value="0"/>
                       <horizontalTextPosition value="0"/>
@@ -247,8 +226,10 @@
                       <text value="Pendiente"/>
                     </properties>
                   </component>
-                  <component id="b2c13" class="javax.swing.JButton" binding="crearTareaButton" default-binding="true">
-                    <constraints border-constraint="South"/>
+                  <component id="39c5d" class="javax.swing.JButton" binding="crearTareaButton" default-binding="true">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
                     <properties>
                       <background color="-1118482"/>
                       <foreground color="-16777216"/>
@@ -257,25 +238,59 @@
                   </component>
                 </children>
               </grid>
+              <grid id="b4f45" binding="tareasPendientesPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints border-constraint="Center"/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <grid id="90308" binding="tareasDnDPendientes" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children/>
+                  </grid>
+                </children>
+              </grid>
             </children>
           </grid>
           <grid id="365ae" binding="tareasAcabadas" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
-              <component id="b79d1" class="javax.swing.JLabel" binding="AcabadoLabel">
+              <grid id="7851d" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints border-constraint="North"/>
-                <properties>
-                  <horizontalAlignment value="0"/>
-                  <horizontalTextPosition value="0"/>
-                  <minimumSize width="62" height="40"/>
-                  <preferredSize width="62" height="40"/>
-                  <text value="Acabado"/>
-                </properties>
-              </component>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="b79d1" class="javax.swing.JLabel" binding="AcabadoLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <horizontalAlignment value="0"/>
+                      <horizontalTextPosition value="0"/>
+                      <minimumSize width="62" height="40"/>
+                      <preferredSize width="62" height="40"/>
+                      <text value="Acabado"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="493da" binding="tareasDnDAcabadas" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints border-constraint="Center"/>
+                <properties/>
+                <border type="none"/>
+                <children/>
+              </grid>
             </children>
           </grid>
           <grid id="b1af9" binding="tareasEnCurso" layout-manager="BorderLayout" hgap="0" vgap="0">
@@ -285,35 +300,33 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="24a0b" class="javax.swing.JLabel" binding="enCursoLabel">
+              <grid id="12396" binding="headerEnCurso" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints border-constraint="North"/>
-                <properties>
-                  <horizontalAlignment value="0"/>
-                  <horizontalTextPosition value="0"/>
-                  <minimumSize width="62" height="40"/>
-                  <preferredSize width="62" height="40"/>
-                  <text value="En Curso"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <grid id="4ebc0" binding="tareasEnPruebas" layout-manager="BorderLayout" hgap="0" vgap="0">
-            <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children>
-              <component id="a983a" class="javax.swing.JLabel" binding="pruebasLabel">
-                <constraints border-constraint="North"/>
-                <properties>
-                  <horizontalAlignment value="0"/>
-                  <horizontalTextPosition value="0"/>
-                  <minimumSize width="62" height="40"/>
-                  <preferredSize width="62" height="40"/>
-                  <text value="Pruebas"/>
-                </properties>
-              </component>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="fbc09" class="javax.swing.JLabel" binding="enCursoLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <horizontalAlignment value="0"/>
+                      <horizontalTextPosition value="0"/>
+                      <minimumSize width="62" height="40"/>
+                      <preferredSize width="62" height="40"/>
+                      <text value="En Curso"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="bf261" binding="tareasDnDEnCurso" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints border-constraint="Center"/>
+                <properties/>
+                <border type="none"/>
+                <children/>
+              </grid>
             </children>
           </grid>
         </children>

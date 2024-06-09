@@ -1,10 +1,15 @@
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static javax.swing.SwingUtilities.invokeLater;
 
 public class PantallaUsuario extends JFrame{
+    int contadorNumTareasAntes = 0;
+    static int contadorNumTareasDespuesInsert = 0;
+    private static List<Tarea> tareas = new ArrayList<>();
     private JPanel headerPanel;
     private JLabel imagenUrbanEssence;
     private JPanel divBotonesHeader;
@@ -17,21 +22,24 @@ public class PantallaUsuario extends JFrame{
     private JPanel main;
     private JPanel panelPrincipalPantallaUsuario;
     private JButton btnEditarMisDatos;
-    private JLabel enCursoLabel;
-    private JLabel pruebasLabel;
     private JLabel AcabadoLabel;
-    private JLabel tareaPendienteLabel;
     private JButton crearTareaButton;
     private JPanel tareasPendientes;
     private JPanel tareasAcabadas;
     private JPanel tareasEnCurso;
-    private JPanel tareasEnPruebas;
-    private JPanel crearTareaPanel;
     private JPanel panelLogo;
     private JPanel fotoYNombrePanel;
     private JLabel fotoUsuario;
     private JLabel NombreUsuario;
     private JLabel FechaIncorporacion;
+    private JPanel headerPendiente;
+    private JLabel tareaPendienteLabel;
+    private JPanel tareasPendientesPanel;
+    private JLabel enCursoLabel;
+    private JPanel headerEnCurso;
+    private JPanel tareasDnDPendientes;
+    private JPanel tareasDnDEnCurso;
+    private JPanel tareasDnDAcabadas;
 
     public PantallaUsuario(){
         if(DBManager.loadDriverSQLServer() && DBManager.openConnectionToDatabase()){
@@ -49,6 +57,7 @@ public class PantallaUsuario extends JFrame{
         perfil.setLocationRelativeTo(null);
         setLogo();
         configurarBotones();
+        cargarTareas();
 
         btnEditarMisDatos.addActionListener(e -> {
             JDialog editarDatos = new EditarDatosUsuario(this, "Tú perfil");
@@ -63,8 +72,28 @@ public class PantallaUsuario extends JFrame{
         crearTareaButton.addActionListener(e ->{
             JDialog crearTarea = new CrearTarea(this, "Crear tarea", 1);
             crearTarea.setVisible(true);
-
         });
+    }
+
+    private void cargarTareas() {
+        if (DataManager.getTareas()){
+            tareas = DataManager.getListaTareas();
+            contadorNumTareasAntes = tareas.size();
+            System.out.println(contadorNumTareasAntes);
+//        solo para ver que se han cargado por consola
+//            System.out.println(tareas);
+        }
+    }
+
+    public static void actualizarTareas() {
+        tareas.clear();
+        if (DataManager.getTareas()){
+            tareas = DataManager.getListaTareas();
+            contadorNumTareasDespuesInsert = tareas.size();
+            System.out.println(contadorNumTareasDespuesInsert);
+//        solo para ver que se han cargado por consola
+//            System.out.println(tareas);
+        }
     }
 
     private void setLogo() {
@@ -80,9 +109,6 @@ public class PantallaUsuario extends JFrame{
 
         btnPerfil.setUI(new BasicButtonUI());
         btnPerfil.setBorder(null);
-
-        btnCalendarioDeTareas.setUI(new BasicButtonUI());
-        btnCalendarioDeTareas.setBorder(null);
 
         btnHistorialDePedidos.setUI(new BasicButtonUI());
         btnHistorialDePedidos.setBorder(null);

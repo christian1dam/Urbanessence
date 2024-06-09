@@ -9,7 +9,7 @@ public class DBManager {
      * INICIO CONSTANTES PARA LA CONEXION CON SQL SERVER
      * **/
 
-    private static Connection connection = null;
+
     //CONSTATNTES PARA LA CONEXION
     private static final String DBHOST =  "192.168.56.1";
     private static final String PORT = "1433";
@@ -36,6 +36,7 @@ public class DBManager {
     private static final String DB_PASS = "";
     private static final String SQL_GET_CIUDADES = "SELECT * from ciudad";
     private static final String SQL_GET_PRODUCTOS = "SELECT * from producto";
+    private static final String SQL_GET_TAREAS = "SELECT * from tareas";
 
     /**
      * METODOS PARA CARGAR EL JDBC PARA SQL SERVER Y LA COENXION CON LA BD
@@ -60,7 +61,7 @@ public class DBManager {
     public static boolean openConnectionToDatabase(){
         try {
             System.out.println("Connecting to the database...");
-            connection = DriverManager.getConnection(URL);
+            conn = DriverManager.getConnection(URL);
             System.out.println("Successfully connect to the database " + DBNAME + " !");
             return true;
         } catch (SQLException e) {
@@ -74,7 +75,7 @@ public class DBManager {
     public static void closeConnectioToDatabase(){
         try {
             System.out.println("Closing your connection to the database " + DBNAME);
-            connection.close();
+            conn.close();
             System.out.println("Connection closed.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -144,12 +145,17 @@ public class DBManager {
             ps.setDate(3, Date.valueOf(tarea.getFechaInicio()));
             ps.setDate(4, Date.valueOf(tarea.getFechaFin()));
             ps.setInt(5, tarea.getEmpleadoID());
-            if(ps.execute()) return true;
-            else return false;
+            return !ps.execute(); //solo devuelve true si el resultado es un resultset
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("ERROR AL INSERTAR LA TAREA EN LA BD: " + e.getMessage());
             return false;
         }
+    }
+
+    public static ResultSet getTareas() throws SQLException {
+        Statement stat = conn.createStatement();
+        ResultSet rs = stat.executeQuery(SQL_GET_TAREAS);
+        return rs;
     }
 }

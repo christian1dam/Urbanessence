@@ -33,7 +33,13 @@ public class CrearTarea extends JDialog {
             Tarea tarea = recogerTarea(empleadoID);
             if(DataManager.crearTarea(tarea)){
                 JOptionPane.showMessageDialog(this, "La tarea se ha creado correctamente");
-            } else JOptionPane.showMessageDialog(this, "Ha habido un error al crear la tarea");
+                dispose();
+
+                PantallaUsuario.actualizarTareas();
+            } else {
+                JOptionPane.showMessageDialog(this, "Ha habido un error al crear la tarea");
+                dispose();
+            }
         });
 
         configurarBotones();

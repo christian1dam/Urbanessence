@@ -73,4 +73,16 @@ public class Tarea {
     public void setEmpleadoID(int empleadoID) {
         this.empleadoID = empleadoID;
     }
+
+    @Override
+    public String toString() {
+        return "Tarea{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", fechaInicio=" + fechaInicio +
+                ", fechaFin=" + fechaFin +
+                ", empleadoID=" + empleadoID +
+                '}';
+    }
 }
