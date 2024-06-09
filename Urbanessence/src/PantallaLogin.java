@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PantallaLogin extends JFrame{
+    private Integer usuarioID = 0;
+
     private JPanel panel1;
     private JTextField txtUsuario;
     private JTextField txtContra;
@@ -28,7 +30,8 @@ public class PantallaLogin extends JFrame{
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        JFrame frame = new PantallaClientes();
+                        usuarioID = DataManager.getUsuarioID(txtUsuario.getText(), txtContra.getText());
+                        JFrame frame = new PantallaClientes(usuarioID);
                         frame.setVisible(true);
                         frame.setSize(1080,670);
                         frame.setLocationRelativeTo(null);

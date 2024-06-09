@@ -1,5 +1,3 @@
-import javax.print.DocFlavor;
-import java.security.PublicKey;
 import java.sql.*;
 
 public class DBManager {
@@ -157,5 +155,31 @@ public class DBManager {
         Statement stat = conn.createStatement();
         ResultSet rs = stat.executeQuery(SQL_GET_TAREAS);
         return rs;
+    }
+
+
+    public static ResultSet getUsuarioID(String usuario, String contrasenya) throws SQLException {
+        String query = "SELECT id FROM empleado WHERE usuario = ? AND contrasenya = ?";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1, usuario);
+        ps.setString(2, contrasenya);
+        return ps.executeQuery();
+    }
+
+
+
+    public static ResultSet getAllDataFromEmployee(int usuarioID) throws SQLException {
+        String query = "SELECT * FROM empleado WHERE id = ?";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setInt(1, usuarioID);
+        return ps.executeQuery();
+    }
+
+    public static boolean updateEmployeeData(int usuarioID, String nuevaContrasenya) throws SQLException {
+        String query = "UPDATE empleado SET contrasenya = ? WHERE id = ?";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1, nuevaContrasenya);
+        ps.setInt(2, usuarioID);
+        return ps.executeUpdate() > 0;
     }
 }

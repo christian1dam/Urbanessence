@@ -11,8 +11,10 @@ public class Empleado {
     private Double salario;
     private String nuss;
     private int idTienda;
+    private String usuario;
+    private String contrasenya;
 
-    public Empleado(int id, String nombre, String apellidos, Date fechaNac, String direccion, Date fechaCont, String cargo, Double salario, String nuss, int idTienda) {
+    public Empleado(int id, String nombre, String apellidos, Date fechaNac, String direccion, Date fechaCont, String cargo, Double salario, String nuss, int idTienda, String usuario, String contrasenya) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -23,6 +25,8 @@ public class Empleado {
         this.salario = salario;
         this.nuss = nuss;
         this.idTienda = idTienda;
+        this.usuario = usuario;
+        this.contrasenya = contrasenya;
     }
 
     public int getId() {

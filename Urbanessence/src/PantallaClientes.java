@@ -213,6 +213,196 @@ public class PantallaClientes extends JFrame{
         });
     }
 
+    public PantallaClientes(int usuarioID) {
+        super("Panel Clientes");
+        setContentPane(panelGeneral);
+        ImageIcon imageLogo = new ImageIcon("imagenes/Logo.png");
+        lblLogo.setIcon(imageLogo);
+
+        crearTabla();
+        cargarIconos();
+        formatoBotones();
+
+        btnAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaEditarClientes();
+                        frame.setVisible(true);
+                        frame.setSize(745,620);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+            }
+        });
+        btnEdit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaEditarClientes();
+                        frame.setVisible(true);
+                        frame.setSize(745,620);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+            }
+        });
+
+        btnPedido.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaPedidos();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+            }
+        });
+
+        btnProveedor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaProveedores();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+            }
+        });
+
+        btnProducto.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaPedidos(); //todo
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+            }
+        });//todo: cambiar la pantalla (productos)
+
+        btnTipo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaTipo();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+            }
+        });
+
+        btnTienda.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaTiendas();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+            }
+        });
+
+        btnEmpleado.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaPedidos(); //todo: cambiar la pantalla
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+            }
+        });//todo: cambiar la pantalla (empleado)
+
+        btnCiudad.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaPedidos(); //todo: cambiar la pantalla
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+            }
+        });//todo: cambiar la pantalla (ciudad)
+
+        btnPerfil.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaPedidos(); //todo: cambiar la pantalla
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+            }
+        });//todo: cambiar la pantalla (perfil)
+
+        btnLogout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaLogin();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+            }
+        });
+
+        btnPerfil.addActionListener(e ->{
+            PantallaUsuario userScreen = new PantallaUsuario(usuarioID);
+        });
+    }
+
     private void cargarIconos() {
         ImageIcon iconoClientes = new ImageIcon("imagenes/iconoClientesBlanco.png");
         btnCliente.setIcon(iconoClientes);
