@@ -6,3 +6,6 @@ Urbanessence/.idea
 Urbanessence/out
 Urbanessence/Urbanessence.iml
 Urbanessence/.gitignore
+
+##jdbc
+Urbanessence/jdbc

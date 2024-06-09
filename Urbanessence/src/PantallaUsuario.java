@@ -34,6 +34,13 @@ public class PantallaUsuario extends JFrame{
     private JLabel FechaIncorporacion;
 
     public PantallaUsuario(){
+        if(DBManager.loadDriverSQLServer() && DBManager.openConnectionToDatabase()){
+            JOptionPane.showMessageDialog(this, "JDBC cargado correctamente y conexion con sqlserver correcta");
+        } else {
+            JOptionPane.showMessageDialog(this, "error al conectar con la bd");
+        }
+
+
         JFrame perfil = new JFrame("Tu perfil");
         perfil.setContentPane(panelPrincipalPantallaUsuario);
         perfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,6 +58,12 @@ public class PantallaUsuario extends JFrame{
         btnHistorialDePedidos.addActionListener(e -> {
             JDialog historialPedidos = new HistorialDePedidosDelUsuario(this, "Tú perfil");
             historialPedidos.setVisible(true);
+        });
+
+        crearTareaButton.addActionListener(e ->{
+            JDialog crearTarea = new CrearTarea(this, "Crear tarea", 1);
+            crearTarea.setVisible(true);
+
         });
     }
 

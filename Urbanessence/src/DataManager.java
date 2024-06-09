@@ -51,4 +51,11 @@ public class DataManager {
     public static ArrayList getListaProductos(){
         return listProductos;
     }
+
+    public static boolean crearTarea(Tarea tarea) {
+        if(DBManager.connect() && DBManager.crearTarea(tarea)){
+            return true;
+        }
+        return false;
+    }
 }
