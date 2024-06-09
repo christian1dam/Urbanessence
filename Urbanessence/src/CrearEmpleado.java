@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
+import java.time.LocalDate;
 
 public class CrearEmpleado extends JDialog {
 
@@ -46,6 +47,8 @@ public class CrearEmpleado extends JDialog {
     private JLabel contrasenyaLabe;
     private JLabel confirmarContra;
     private JButton guardarBtn;
+    private JTextField direccionTXTField;
+    private JTextField tiendaDelEmpleado;
 
     public CrearEmpleado(JFrame parent, String titulo) {
         super(parent, titulo, true);
@@ -54,6 +57,27 @@ public class CrearEmpleado extends JDialog {
         setLocationRelativeTo(null);
         setLogo();
         configurarBotones();
+
+        guardarBtn.addActionListener(e ->{
+            Empleado empleado = new Empleado(
+                    nombreEmpleado.getText(),
+                    apellidosEmpleado.getText(),
+                    LocalDate.parse(fechaNacEmpleado.getText()),
+                    direccionTXTField.getText(),
+                    LocalDate.parse(fechaContrEmpleado.getText()),
+                    cargoEmpleado.getText(),
+                    Double.parseDouble(salarioEmpleado.getText()),
+                    nussLabel.getText(),
+                    Integer.parseInt(tiendaDelEmpleado.getText()),
+                    nombreUsuario.getText(),
+                    contrasenya.getText()
+            );
+            if (DataManager.insertarNuevoEmpleado(empleado)){
+                JOptionPane.showMessageDialog(this,"Se ha credo correctamente el empleado en la base de datos");
+                this.dispose();
+            }
+            else JOptionPane.showMessageDialog(this, "error al insertar en la base de datos");
+        });
     }
 
     private void setLogo() {

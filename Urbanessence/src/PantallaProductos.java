@@ -51,6 +51,7 @@ public class PantallaProductos extends JFrame{
                 });
             }
         });
+
         btnEdit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -180,6 +181,7 @@ public class PantallaProductos extends JFrame{
                 data,
                 new String[]{"ID", "NOMBRE", "MARCA", "TALLA", "COLOR", "MATERIAL", "PRECIO", "IDTIPO", "CANTIDAD"}
         ));
+
         tabla.getTableHeader().setReorderingAllowed(false);
         tabla.setEnabled(true);
         tabla.setDefaultEditor(Object.class, null);

@@ -8,7 +8,9 @@
       <minimumSize width="800" height="600"/>
       <preferredSize width="1400" height="600"/>
     </properties>
-    <border type="none"/>
+    <border type="empty">
+      <size top="10" left="10" bottom="10" right="10"/>
+    </border>
     <children>
       <grid id="6dc1d" binding="headerPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="North"/>
@@ -54,7 +56,9 @@
                     <preferred-size width="321" height="0"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <visible value="false"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="b53e8" class="javax.swing.JButton" binding="btnBuscar">

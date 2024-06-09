@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.sql.*;
 
 public class DBManager {
@@ -35,6 +37,7 @@ public class DBManager {
     private static final String SQL_GET_CIUDADES = "SELECT * from ciudad";
     private static final String SQL_GET_PRODUCTOS = "SELECT * from producto";
     private static final String SQL_GET_TAREAS = "SELECT * from tareas";
+    private static final String SQL_GET_EMPLEADOS = "SELECT * from empleado";
 
     /**
      * METODOS PARA CARGAR EL JDBC PARA SQL SERVER Y LA COENXION CON LA BD
@@ -80,6 +83,19 @@ public class DBManager {
             System.out.println(e.getMessage());
         }
     }
+
+    public static boolean deleteEmpleado(Empleado empleado) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("delete from empleado where id = ?;");
+            ps.setInt(1, empleado.getId());
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
 
     /**
      * FIN METODOS CONEXION SQLSERVER
@@ -175,11 +191,49 @@ public class DBManager {
         return ps.executeQuery();
     }
 
-    public static boolean updateEmployeeData(int usuarioID, String nuevaContrasenya) throws SQLException {
+    public static boolean updateEmployeePassword(int usuarioID, String nuevaContrasenya) throws SQLException {
         String query = "UPDATE empleado SET contrasenya = ? WHERE id = ?";
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setString(1, nuevaContrasenya);
         ps.setInt(2, usuarioID);
         return ps.executeUpdate() > 0;
+    }
+
+    public static boolean updateEmployee(Empleado empleado) throws SQLException {
+        String query = "UPDATE empleado SET cargo = ?, salario = ? WHERE id = ?";
+        try (PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, empleado.getCargo());
+            ps.setDouble(2, empleado.getSalario());
+            ps.setInt(3, empleado.getId());
+            return ps.executeUpdate() > 0;
+        }
+    }
+
+    public static ResultSet getEmpleados() throws SQLException {
+        Statement stat = conn.createStatement();
+        return stat.executeQuery(SQL_GET_EMPLEADOS);
+    }
+
+
+    public static boolean insertarNuevoEmpleado(Empleado empleado) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("insert into empleado(nombre, apellidos, fechaNac, direccion, fechaCont, cargo, salario, NUSS, idTienda, usuario, contrasenya) VALUES(?,?,?,?,?,?,?,?,?,?,?);");
+            ps.setString(1, empleado.getNombre());
+            ps.setString(2, empleado.getApellidos());
+            ps.setDate(3, Date.valueOf(empleado.getFechaNac()));
+            ps.setString(4, empleado.getDireccion());
+            ps.setDate(5, Date.valueOf(empleado.getFechaCont()));
+            ps.setString(6, empleado.getCargo());
+            ps.setDouble(7, empleado.getSalario());
+            ps.setString(8, empleado.getNuss());
+            ps.setInt(9, empleado.getIdTienda());
+            ps.setString(10, empleado.getUsuario());
+            ps.setString(11, empleado.getContrasenya());
+            return !ps.execute(); //solo devuelve true si el resultado es un resultset
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("ERROR AL INSERTAR LA TAREA EN LA BD: " + e.getMessage());
+            return false;
+        }
     }
 }

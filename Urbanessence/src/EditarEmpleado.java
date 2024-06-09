@@ -18,14 +18,9 @@ public class EditarEmpleado extends JDialog {
     private JPanel datos1panel;
     private JLabel nussLabel;
     private JLabel salarioLabel;
-    private JLabel nombreUsuarioLabel;
     private JTextField nussEmpleado;
     private JTextField salarioEmpleado;
-    private JLabel contrasenyaLabe;
-    private JTextField confirmarContraseña;
     private JTextField nombreUsuario;
-    private JLabel nuevaContrasenyaLabel;
-    private JTextField contrasenya;
     private JLabel crearEmpleadoLABEL;
     private JButton cancelarBtn;
     private JButton guardarBtn;
@@ -44,19 +39,36 @@ public class EditarEmpleado extends JDialog {
     private JButton btnLogout;
     private JPanel panelLogo;
     private JLabel imagenUrbanEssence;
-    private JTextField nuevaContrasenya;
-    private JLabel confirmarContrasenyaLabel;
     private JPanel panelPrincipalEditarEmpleado;
 
-    public EditarEmpleado(JFrame parent, String titulo){
+    public EditarEmpleado(JFrame parent, String titulo, Empleado empleado){
        super(parent, titulo, true);
         setContentPane(panelPrincipalEditarEmpleado);
         pack();
         setLocationRelativeTo(null);
         setLogo();
         configurarBotones();
+
+        cargarDatos(empleado);
+        guardarBtn.addActionListener(e ->{
+            empleado.setCargo(cargoEmpleado.getText());
+            empleado.setSalario(Double.valueOf(salarioEmpleado.getText()));
+            if(DataManager.updateEmployeeSalarioAndCargo(empleado)) {
+                JOptionPane.showMessageDialog(this, "Se ha actualizado correctamente el empleado.", "Datos actualizados", JOptionPane.INFORMATION_MESSAGE);
+                EditarEmpleado.this.dispose();
+            } else JOptionPane.showMessageDialog(this, "Ha habido un error al actualizar el empleaod", "ERROR", JOptionPane.ERROR_MESSAGE);
+        });
    }
 
+    private void cargarDatos(Empleado empleado) {
+        nombreEmpleado.setText(empleado.getNombre());
+        apellidosEmpleado.setText(empleado.getApellidos());
+        fechaNacEmpleado.setText(String.valueOf(empleado.getFechaNac()));
+        fechaContrEmpleado.setText(String.valueOf(empleado.getFechaCont()));
+        nussEmpleado.setText(empleado.getNuss());
+        cargoEmpleado.setText(empleado.getCargo());
+        salarioEmpleado.setText(String.valueOf(empleado.getSalario()));
+    }
 
     private void setLogo() {
         ImageIcon icon = new ImageIcon("imagenes/logo.png");
