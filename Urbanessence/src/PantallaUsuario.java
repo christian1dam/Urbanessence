@@ -161,6 +161,23 @@ public class PantallaUsuario extends JFrame {
 
             }
         });
+
+        btnLogout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaProveedores();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+                dispose();
+            }
+        });
     }
 
     private void configurarTextFields() {

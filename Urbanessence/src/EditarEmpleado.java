@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class EditarEmpleado extends JDialog {
     private JPanel main;
@@ -57,6 +59,136 @@ public class EditarEmpleado extends JDialog {
                 JOptionPane.showMessageDialog(this, "Se ha actualizado correctamente el empleado.", "Datos actualizados", JOptionPane.INFORMATION_MESSAGE);
                 EditarEmpleado.this.dispose();
             } else JOptionPane.showMessageDialog(this, "Ha habido un error al actualizar el empleaod", "ERROR", JOptionPane.ERROR_MESSAGE);
+        });
+
+        btnClientes.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaClientes();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+                dispose();
+            }
+        });
+        btnPedidos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaPedidos(usuarioID);
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+                dispose();
+            }
+        });
+        btnProveedores.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaProveedores();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+                dispose();
+            }
+        });
+        btnProductos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaProductos();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+                dispose();
+            }
+        });
+        btnTipo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaTipo();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+                dispose();
+            }
+        });
+        btnTienda.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaTiendas();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+                dispose();
+            }
+        });
+        btnCiudades.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaCiudades();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+                dispose();
+            }
+        });
+
+        btnLogout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JFrame frame = new PantallaLogin();
+                        frame.setVisible(true);
+                        frame.setSize(1080,670);
+                        frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
+                    }
+                });
+                dispose();
+            }
         });
    }
 
