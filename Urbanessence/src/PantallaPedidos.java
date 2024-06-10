@@ -28,7 +28,7 @@ public class PantallaPedidos extends JFrame{
     static ArrayList<Pedido> pedidos = new ArrayList<>();
     static String id = "", fecha = "", totalPedido = "", estado = "", idCliente = "", idEmpleado = "";
 
-    public PantallaPedidos(int usuarioID) {
+    public PantallaPedidos() {
         super("Panel Pedidos");
         setContentPane(panelGeneral);
         pedidos.clear();
@@ -39,10 +39,6 @@ public class PantallaPedidos extends JFrame{
         crearTabla();
         cargarIconos();
         formatoBotones();
-
-        btnPerfil.addActionListener(e ->{
-            PantallaUsuario userScreen = new PantallaUsuario(usuarioID);
-        });
 
         boxBuscar.setModel(new DefaultComboBoxModel(new String []{"ID", "FECHA", "TOTAL PEDIDO", "ESTADO", "ID CLIENTE", "ID EMPLEADO"}));
 

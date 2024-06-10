@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,7 +91,7 @@ public class PantallaPrincipalEmpleados extends JFrame {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        JFrame frame = new PantallaPedidos(usuarioID);
+                        JFrame frame = new PantallaPedidos();
                         frame.setVisible(true);
                         frame.setSize(1080,670);
                         frame.setLocationRelativeTo(null);

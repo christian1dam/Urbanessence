@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ParameterMetaData;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -151,7 +152,7 @@ public class PantallaEditarTiendas extends JFrame{
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        JFrame frame = new PantallaPedidos(usuarioID);
+                        JFrame frame = new PantallaPedidos();
                         frame.setVisible(true);
                         frame.setSize(1080,670);
                         frame.setLocationRelativeTo(null);

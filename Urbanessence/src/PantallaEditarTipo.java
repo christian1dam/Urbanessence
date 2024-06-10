@@ -151,7 +151,7 @@ public class PantallaEditarTipo extends JFrame{
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        JFrame frame = new PantallaPedidos(usuarioID);
+                        JFrame frame = new PantallaPedidos();
                         frame.setVisible(true);
                         frame.setSize(1080,670);
                         frame.setLocationRelativeTo(null);

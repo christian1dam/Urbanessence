@@ -49,7 +49,6 @@ public class PantallaClientes extends JFrame{
 
         btnPerfil.addActionListener(e ->{
             PantallaUsuario userScreen = new PantallaUsuario(usuarioID);
-            userScreen.setVisible(true);
         });
 
         btnAdd.addActionListener(new ActionListener() {
@@ -60,7 +59,7 @@ public class PantallaClientes extends JFrame{
                     @Override
                     public void run() {
                         limpiarCampos();
-                        JFrame frame = new PantallaEditarClientes(usuarioID);
+                        JFrame frame = new PantallaEditarClientes();
                         frame.setVisible(true);
                         frame.setSize(745,620);
                         frame.setLocationRelativeTo(null);
@@ -76,7 +75,7 @@ public class PantallaClientes extends JFrame{
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        JFrame frame = new PantallaEditarClientes(usuarioID);
+                        JFrame frame = new PantallaEditarClientes();
                         frame.setVisible(true);
                         frame.setSize(745,620);
                         frame.setLocationRelativeTo(null);
@@ -105,7 +104,7 @@ public class PantallaClientes extends JFrame{
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        JFrame frame = new PantallaPedidos(usuarioID);
+                        JFrame frame = new PantallaPedidos();
                         frame.setVisible(true);
                         frame.setSize(1080,670);
                         frame.setLocationRelativeTo(null);

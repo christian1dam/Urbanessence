@@ -2,8 +2,10 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PantallaEditarClientes extends JFrame{
     private JPanel panelGeneral;
@@ -43,7 +45,7 @@ public class PantallaEditarClientes extends JFrame{
 
     static ArrayList<Cliente> clientes = new ArrayList<>();
 
-    public PantallaEditarClientes(int usuarioID) {
+    public PantallaEditarClientes() {
         super("Editar Clientes");
         setContentPane(panelGeneral);
         ImageIcon imageLogo = new ImageIcon("imagenes/Logo.png");
@@ -53,11 +55,6 @@ public class PantallaEditarClientes extends JFrame{
         cargarIconos();
         formatoBotones();
         rellenarCampos();
-
-        btnPerfil.addActionListener(e ->{
-            PantallaUsuario userScreen = new PantallaUsuario(usuarioID);
-            userScreen.setVisible(true);
-        });
 
         btnGuardar.addActionListener(new ActionListener() {
             @Override
@@ -94,7 +91,7 @@ public class PantallaEditarClientes extends JFrame{
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        JFrame frame = new PantallaPedidos(usuarioID);
+                        JFrame frame = new PantallaPedidos();
                         frame.setVisible(true);
                         frame.setSize(1080,670);
                         frame.setLocationRelativeTo(null);
