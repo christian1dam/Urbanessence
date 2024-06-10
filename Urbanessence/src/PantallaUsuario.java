@@ -48,11 +48,7 @@ public class PantallaUsuario extends JFrame {
 
     public PantallaUsuario(int usuarioID) {
         this.usuarioID = usuarioID;
-        if (DBManager.loadDriverSQLServer() && DBManager.openConnectionToDatabase()) {
-            JOptionPane.showMessageDialog(this, "JDBC cargado correctamente y conexion con sqlserver correcta");
-        } else {
-            JOptionPane.showMessageDialog(this, "error al conectar con la bd");
-        }
+
 
         JFrame perfil = new JFrame("Tu perfil");
         perfil.setContentPane(panelPrincipalPantallaUsuario);
@@ -124,12 +120,6 @@ public class PantallaUsuario extends JFrame {
     }
 
     public PantallaUsuario() {
-        if (DBManager.loadDriverSQLServer() && DBManager.openConnectionToDatabase()) {
-            JOptionPane.showMessageDialog(this, "JDBC cargado correctamente y conexion con sqlserver correcta");
-        } else {
-            JOptionPane.showMessageDialog(this, "error al conectar con la bd");
-        }
-
         JFrame perfil = new JFrame("Tu perfil");
         perfil.setContentPane(panelPrincipalPantallaUsuario);
         perfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

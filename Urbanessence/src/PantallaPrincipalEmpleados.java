@@ -42,12 +42,6 @@ public class PantallaPrincipalEmpleados extends JFrame {
     private MouseAdapter doubleClickListener;
 
     public PantallaPrincipalEmpleados() {
-        if (DBManager.loadDriverSQLServer() && DBManager.openConnectionToDatabase()) {
-            JOptionPane.showMessageDialog(this, "JDBC cargado correctamente y conexion con sqlserver correcta");
-        } else {
-            JOptionPane.showMessageDialog(this, "error al conectar con la bd");
-        }
-
         JFrame perfil = new JFrame("Empleados");
         perfil.setContentPane(panelPrincipalEmpleado);
         perfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

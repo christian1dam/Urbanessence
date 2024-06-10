@@ -5,28 +5,6 @@ import java.sql.*;
 public class DBManager {
     private static Connection conn = null;
 
-    /**
-     * INICIO CONSTANTES PARA LA CONEXION CON SQL SERVER
-     * **/
-
-
-    //CONSTATNTES PARA LA CONEXION
-    private static final String DBHOST =  "192.168.56.1";
-    private static final String PORT = "1433";
-    private static final String DBNAME = "Urbanessence";
-    //CONSTANTES PARA EL USUARIO
-    private static final String DBUSER = "UrbanessenceAdmin";
-    private static final String PASSWORD = "1234";
-    //CONSTANTES SEGURIDAD
-    private static final String ENCRYPT = "true";
-    private static final String TRUST_SERVER_CERTIFICATE = "true";
-    //URL FINAL
-    private static final String URL ="jdbc:sqlserver://" + DBHOST + ":" + PORT + ";databaseName=" + DBNAME + ";user=" + DBUSER + ";password=" + PASSWORD + ";encrypt=" + ENCRYPT + ";trustServerCertificate=" + TRUST_SERVER_CERTIFICATE;
-
-    /**
-     * FIN CONSTANTES PARA LA CONEXION CON SQL SERVER
-     * **/
-
     // Configuración de la conexión a la base de datos
     private static final String DB_HOST = "localhost";
     private static final String DB_PORT = "3306";
@@ -39,70 +17,7 @@ public class DBManager {
     private static final String SQL_GET_TAREAS = "SELECT * from tareas";
     private static final String SQL_GET_EMPLEADOS = "SELECT * from empleado";
 
-    /**
-     * METODOS PARA CARGAR EL JDBC PARA SQL SERVER Y LA COENXION CON LA BD
-     */
-
-
-    //METODO PARA CARGAR EL DRIVER SQLSEREVER
-    public static boolean loadDriverSQLServer(){
-        try {
-            System.out.println("Cargando Driver JDBC...");
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
-            System.out.println("DRIVER JDBC SUCCESSFULLY LOADED!");
-            return true;
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
-
-    //METODO PARA CREAR LA CONEXION CON LA BASE DE DATOS
-    public static boolean openConnectionToDatabase(){
-        try {
-            System.out.println("Connecting to the database...");
-            conn = DriverManager.getConnection(URL);
-            System.out.println("Successfully connect to the database " + DBNAME + " !");
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
-
-    //METODO PARA CERRAR LA CONEXION CON LA BASE DE DATOS
-    public static void closeConnectioToDatabase(){
-        try {
-            System.out.println("Closing your connection to the database " + DBNAME);
-            conn.close();
-            System.out.println("Connection closed.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public static boolean deleteEmpleado(Empleado empleado) {
-        try {
-            PreparedStatement ps = conn.prepareStatement("delete from empleado where id = ?;");
-            ps.setInt(1, empleado.getId());
-            return ps.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
-
-
-    /**
-     * FIN METODOS CONEXION SQLSERVER
-     *
-     */
-
-    public boolean loadDriver() {
+    public static boolean loadDriver() {
         try {
             System.out.print("Cargando Driver...");
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -233,6 +148,18 @@ public class DBManager {
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("ERROR AL INSERTAR LA TAREA EN LA BD: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public static boolean deleteEmpleado(Empleado empleado) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("delete from empleado where id = ?;");
+            ps.setInt(1, empleado.getId());
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
             return false;
         }
     }

@@ -61,17 +61,17 @@ public class DataManager {
     }
 
     public static boolean crearTarea(Tarea tarea) {
-        if(DBManager.openConnectionToDatabase() && DBManager.crearTarea(tarea)){
-            DBManager.closeConnectioToDatabase();
+        if(DBManager.connect() && DBManager.crearTarea(tarea)){
+            DBManager.close();
             return true;
         } else {
-            DBManager.closeConnectioToDatabase();
+            DBManager.close();
             return false;
         }
     }
 
     public static boolean getTareas(){
-        if (DBManager.openConnectionToDatabase()){
+        if (DBManager.connect()){
             try {
                 ResultSet rs = DBManager.getTareas();
                 while (rs.next()){
@@ -86,7 +86,7 @@ public class DataManager {
                             ));
                 }
                 rs.close();
-                DBManager.closeConnectioToDatabase();
+                DBManager.close();
                 return true;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -96,10 +96,8 @@ public class DataManager {
         return false;
     }
 
-    public static List<Tarea> getListaTareas() { return listTareas;}
-
     public static int getUsuarioID(String usuario, String contrasenya) {
-        if (DBManager.openConnectionToDatabase()){
+        if (DBManager.connect()){
             try (ResultSet rs = DBManager.getUsuarioID(usuario, contrasenya)) {
                 if (rs.next()) {  // Check if the result set is not empty
                     usuarioID = rs.getInt(1);
@@ -107,7 +105,7 @@ public class DataManager {
                     usuarioID = null; // Explicitly set to null if no data found
                 }
                 rs.close();
-                DBManager.closeConnectioToDatabase();
+                DBManager.close();
                 System.out.println(usuarioID);
                 return usuarioID != null ? usuarioID : -1; // Return -1 if usuarioID is null
             } catch (SQLException e) {
@@ -119,7 +117,7 @@ public class DataManager {
     }
 
     public static Empleado getAllDataFromEmployee(int usuarioID) {
-        if (DBManager.openConnectionToDatabase()){
+        if (DBManager.connect()){
             try {
                 ResultSet rs = DBManager.getAllDataFromEmployee(usuarioID);
                 while (rs.next()){
@@ -139,7 +137,7 @@ public class DataManager {
                         );
                 }
                 rs.close();
-                DBManager.closeConnectioToDatabase();
+                DBManager.close();
                 System.out.println(empleado);
                 return empleado;
             } catch (SQLException e) {
@@ -153,11 +151,11 @@ public class DataManager {
 
     public static boolean updateEmployeeData(int usuarioID, String nuevaContrasenya) {
         try {
-            if(DBManager.openConnectionToDatabase() && DBManager.updateEmployeePassword(usuarioID, nuevaContrasenya)){
-                DBManager.closeConnectioToDatabase();
+            if(DBManager.connect() && DBManager.updateEmployeePassword(usuarioID, nuevaContrasenya)){
+                DBManager.close();
                 return true;
             } else {
-                DBManager.closeConnectioToDatabase();
+                DBManager.close();
                 return false;
             }
         } catch (SQLException e) {
@@ -170,7 +168,7 @@ public class DataManager {
     }
 
     public static boolean getEmpleados(){
-        if (DBManager.openConnectionToDatabase()){
+        if (DBManager.connect()){
             try {
                 ResultSet rs = DBManager.getEmpleados();
                 while (rs.next()){
@@ -190,7 +188,7 @@ public class DataManager {
                     ));
                 }
                 rs.close();
-                DBManager.closeConnectioToDatabase();
+                DBManager.close();
                 return true;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -201,18 +199,18 @@ public class DataManager {
     }
 
     public static boolean insertarNuevoEmpleado(Empleado empleado) {
-        if(DBManager.openConnectionToDatabase() && DBManager.insertarNuevoEmpleado(empleado)){
-            DBManager.closeConnectioToDatabase();
+        if(DBManager.connect() && DBManager.insertarNuevoEmpleado(empleado)){
+            DBManager.close();
             return true;
         } else {
-            DBManager.closeConnectioToDatabase();
+            DBManager.close();
             return false;
         }
     }
 
     public static boolean updateEmployeeSalarioAndCargo(Empleado empleado) {
         try {
-            if(DBManager.openConnectionToDatabase() && DBManager.updateEmployee(empleado)) return true;
+            if(DBManager.connect() && DBManager.updateEmployee(empleado)) return true;
             else return false;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -222,19 +220,9 @@ public class DataManager {
     }
 
     public static boolean deleteEmpleado(Empleado empleado) {
-        if (DBManager.openConnectionToDatabase() && DBManager.deleteEmpleado(empleado)){
-            DBManager.closeConnectioToDatabase();
+        if (DBManager.connect() && DBManager.deleteEmpleado(empleado)){
+            DBManager.close();
             return true;
         } else return false;
     }
-
-//    public static boolean crearTarea(Tarea tarea) {
-//        if(DBManager.openConnectionToDatabase() && DBManager.crearTarea(tarea)){
-//            DBManager.closeConnectioToDatabase();
-//            return true;
-//        } else {
-//            DBManager.closeConnectioToDatabase();
-//            return false;
-//        }
-//    }
 }
