@@ -66,22 +66,6 @@ public class DBManager {
         return rs;
     }
 
-    public static boolean crearTarea(Tarea tarea) {
-        try {
-            PreparedStatement ps = conn.prepareStatement("insert into tareas(titulo, descripcion, fechaInicio, fechaFin, empleadoID) values(?,?,?,?,?);");
-            ps.setString(1, tarea.getTitulo());
-            ps.setString(2, tarea.getDescripcion());
-            ps.setDate(3, Date.valueOf(tarea.getFechaInicio()));
-            ps.setDate(4, Date.valueOf(tarea.getFechaFin()));
-            ps.setInt(5, tarea.getEmpleadoID());
-            return !ps.execute(); //solo devuelve true si el resultado es un resultset
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("ERROR AL INSERTAR LA TAREA EN LA BD: " + e.getMessage());
-            return false;
-        }
-    }
-
     public static ResultSet getTareas() throws SQLException {
         Statement stat = conn.createStatement();
         ResultSet rs = stat.executeQuery(SQL_GET_TAREAS);
