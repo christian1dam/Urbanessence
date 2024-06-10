@@ -83,6 +83,39 @@ public class DBManager {
         }
     }
 
+    /*** LOGIN ***/
+    public static ArrayList<String> obtenerUsuario() {
+        connect();
+        try (PreparedStatement stmt = conn.prepareStatement(SQL_GET_EMPLEADOS);
+             ResultSet rs = stmt.executeQuery()) {
+
+            ArrayList<String> listaUsuarios = new ArrayList<>();
+            while (rs.next()) {
+                listaUsuarios.add(rs.getString(11));
+            }
+            return listaUsuarios;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ArrayList<String> obtenerPasswd() {
+        connect();
+        try (PreparedStatement stmt = conn.prepareStatement(SQL_GET_EMPLEADOS);
+             ResultSet rs = stmt.executeQuery()) {
+
+            ArrayList<String> listaPasswd = new ArrayList<>();
+            while (rs.next()) {
+                listaPasswd.add(rs.getString(12));
+            }
+            return listaPasswd;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     /*** PEDIDOS ***/
     public static ResultSet getPedidos() throws SQLException {
         ResultSet rs = null;
@@ -112,7 +145,7 @@ public class DBManager {
         }
     }
 
-    public static void borrarPedidoProducto(int id) {
+    public static void borrarPedidoProductoP(int id) {
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL_DELETE_PEDIDO_PRODUCTO);
             pstmt.setInt(1, id);
@@ -124,9 +157,9 @@ public class DBManager {
         }
     }
 
-    public static void borrarPedido(int id) {
+    public static void borrarPedidoP(int id) {
         try {
-            borrarPedidoProducto(id);
+            borrarPedidoProductoP(id);
             PreparedStatement pstmt = conn.prepareStatement(SQL_DELETE_PEDIDOS);
             pstmt.setInt(1, id);
 
@@ -134,6 +167,51 @@ public class DBManager {
             pstmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void borrarPedidoProductoC(int id) {
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(SQL_DELETE_PEDIDO_PRODUCTO);
+            pstmt.setInt(1, id);
+
+            pstmt.executeUpdate();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void borrarPedidoC(int idCliente) {
+        try {
+            borrarPedidoProductoC(idCliente);
+            PreparedStatement pstmtID = conn.prepareStatement(SQL_SELECT_ID_PEDIDO);
+            pstmtID.setInt(1, idCliente);
+            ResultSet rs = pstmtID.executeQuery();
+
+            while (rs.next()) {
+                int idPedido = rs.getInt("id");
+                borrarPedidoProductoC(idPedido);
+            }
+
+            rs.close();
+            pstmtID.close();
+
+            PreparedStatement pstmt = conn.prepareStatement(SQL_DELETE_PEDIDOS);
+            pstmt.setInt(1, idCliente);
+
+            pstmt.executeUpdate();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static int borrarClienteC(int id) throws SQLException{
+        borrarPedidoC(id);
+        try (PreparedStatement pstmt = conn.prepareStatement(SQL_DELETE_CLIENTE)){
+            pstmt.setInt(1, id);
+            return pstmt.executeUpdate();
         }
     }
 
@@ -452,50 +530,7 @@ public class DBManager {
         }
     }
 
-    public static void borrarPedidoProducto(int id) {
-        try {
-            PreparedStatement pstmt = conn.prepareStatement(SQL_DELETE_PEDIDO_PRODUCTO);
-            pstmt.setInt(1, id);
 
-            pstmt.executeUpdate();
-            pstmt.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void borrarPedido(int idCliente) {
-        try {
-            borrarPedidoProducto(idCliente);
-            PreparedStatement pstmtID = conn.prepareStatement(SQL_SELECT_ID_PEDIDO);
-            pstmtID.setInt(1, idCliente);
-            ResultSet rs = pstmtID.executeQuery();
-
-            while (rs.next()) {
-                int idPedido = rs.getInt("id");
-                borrarPedidoProducto(idPedido);
-            }
-
-            rs.close();
-            pstmtID.close();
-
-            PreparedStatement pstmt = conn.prepareStatement(SQL_DELETE_PEDIDOS);
-            pstmt.setInt(1, idCliente);
-
-            pstmt.executeUpdate();
-            pstmt.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static int borrarCliente(int id) throws SQLException{
-        borrarPedido(id);
-        try (PreparedStatement pstmt = conn.prepareStatement(SQL_DELETE_CLIENTE)){
-            pstmt.setInt(1, id);
-            return pstmt.executeUpdate();
-        }
-    }
 
     /*** TIENDAS ***/
     public static ResultSet getTiendas() throws SQLException {
@@ -569,8 +604,6 @@ public class DBManager {
     }
 
 
-
-
     public static void close() {
         if (conn != null){
             try {
@@ -579,18 +612,6 @@ public class DBManager {
                 ex.printStackTrace();
             }
         }
-    }
-
-    public static ResultSet getCiudades () throws SQLException {
-        Statement stat = conn.createStatement();
-        ResultSet rs = stat.executeQuery(SQL_GET_CIUDADES);
-        return rs;
-    }
-
-    public static ResultSet getProductos () throws SQLException {
-        Statement stat = conn.createStatement();
-        ResultSet rs = stat.executeQuery(SQL_GET_PRODUCTOS);
-        return rs;
     }
 
     public static ResultSet getTareas() throws SQLException {

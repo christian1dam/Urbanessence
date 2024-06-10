@@ -306,19 +306,4 @@ public class PantallaPedidos extends JFrame{
         return id.isEmpty() || fecha.isEmpty() || totalPedido.isEmpty()
                 || estado.isEmpty() || idCliente.isEmpty() || idEmpleado.isEmpty();
     }
-
-    public static void main(String[] args) {
-        if (DBManager.loadDriver()) {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    JFrame frame = new PantallaPedidos();
-                    frame.setVisible(true);
-                    frame.setSize(1080,670);
-                    frame.setLocationRelativeTo(null);
-                    frame.setResizable(false);
-                }
-            });
-        }
-    }
 }
