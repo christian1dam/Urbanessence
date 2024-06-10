@@ -336,8 +336,4 @@ public class PantallaPrincipalEmpleados extends JFrame {
         btnClientes.setUI(new BasicButtonUI());
         btnClientes.setBorder(null);
     }
-
-    public static void main(String[] args) {
-        invokeLater(PantallaPrincipalEmpleados::new);
-    }
 }

@@ -37,14 +37,14 @@ public class PantallaLogin extends JFrame{
         btnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 for (int i = 0; i < usuarios.size(); i++) {
                     if (usuarios.get(i).equalsIgnoreCase(txtUsuario.getText()) && passwords.get(i).equalsIgnoreCase(txtContra.getText())) {
                         SwingUtilities.invokeLater(new Runnable() {
                             @Override
                             public void run() {
                                 usuarioID = DataManager.getUsuarioID(txtUsuario.getText(), txtContra.getText());
-                                JFrame frame = new PantallaClientes(usuarioID);
+                                UserSession.getInstance().setUserId(usuarioID);
+                                JFrame frame = new PantallaClientes();
                                 frame.setVisible(true);
                                 frame.setSize(1080,670);
                                 frame.setLocationRelativeTo(null);

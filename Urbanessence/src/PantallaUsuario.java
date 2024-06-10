@@ -46,9 +46,8 @@ public class PantallaUsuario extends JFrame {
     private JTextField fechaNacUsuario;
     private JTextField cargoUsuario;
 
-    public PantallaUsuario(int usuarioID) {
-        this.usuarioID = usuarioID;
-
+    public PantallaUsuario() {
+        this.usuarioID = UserSession.getInstance().getUserId();
 
         JFrame perfil = new JFrame("Tu perfil");
         perfil.setContentPane(panelPrincipalPantallaUsuario);
@@ -63,7 +62,7 @@ public class PantallaUsuario extends JFrame {
         cargarDatosDelUsuario();
 
         btnVolverAtras.addActionListener(e -> {
-            PantallaClientes pantallaClientes = new PantallaClientes(usuarioID);
+            PantallaClientes pantallaClientes = new PantallaClientes();
             pantallaClientes.setVisible(true);
             pantallaClientes.setSize(1080,670);
             pantallaClientes.setLocationRelativeTo(null);
@@ -119,67 +118,6 @@ public class PantallaUsuario extends JFrame {
         contrasenyaUsuario.setText("**********");
     }
 
-    public PantallaUsuario() {
-        JFrame perfil = new JFrame("Tu perfil");
-        perfil.setContentPane(panelPrincipalPantallaUsuario);
-        perfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        perfil.setVisible(true);
-        perfil.pack();
-        perfil.setLocationRelativeTo(null);
-        setLogo();
-
-        configurarBotones();
-        configurarTextFields();
-        btnVolverAtras.addActionListener(e -> {
-            PantallaClientes pantallaClientes = new PantallaClientes(usuarioID);
-            pantallaClientes.setVisible(true);
-            pantallaClientes.setSize(1080,670);
-            pantallaClientes.setLocationRelativeTo(null);
-        });
-
-        btnLogout.addActionListener(e -> {
-            PantallaLogin logout = new PantallaLogin();
-            logout.main(null);
-            perfil.dispose();
-        });
-
-        editarButton.addActionListener(e -> {
-            System.out.println("Editar button clicked"); // Agregado para depurar
-            enableTextField();
-            editarButton.setText("GUARDAR");
-            editarButton.addActionListener(f ->{
-                if(confirmarNuevaContrasenyaUsuario.equals(nuevaContrasenyaUsuario) && DataManager.updateEmployeeData(usuarioID, confirmarNuevaContrasenyaUsuario.getText())) {
-                    JOptionPane.showMessageDialog(this, "Se ha cambiado la contraseña correctamente.");
-                } else JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.");
-            });
-        });
-
-
-        btnVolverAtras.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
-        btnLogout.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        JFrame frame = new PantallaProveedores();
-                        frame.setVisible(true);
-                        frame.setSize(1080,670);
-                        frame.setLocationRelativeTo(null);
-                        frame.setResizable(false);
-                    }
-                });
-                dispose();
-            }
-        });
-    }
-
     private void configurarTextFields() {
         contrasenyaUsuario.setEnabled(false);
         nuevaContrasenyaUsuario.setEnabled(false);
@@ -213,9 +151,5 @@ public class PantallaUsuario extends JFrame {
 
         editarButton.setUI(new BasicButtonUI());
         editarButton.setBorder(null);
-    }
-
-    public static void main(String[] args) {
-        invokeLater(PantallaUsuario::new);
     }
 }

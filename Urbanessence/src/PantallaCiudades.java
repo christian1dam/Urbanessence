@@ -1,4 +1,15 @@
-import javax.swing.*;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.RowFilter;
+import javax.swing.SwingUtilities;
 import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -381,20 +392,5 @@ public class PantallaCiudades extends JFrame{
 
     private boolean validaCampos(){
         return nombre.isEmpty() || provincia.isEmpty() || numHabitantes.isEmpty();
-    }
-
-    public static void main(String[] args) {
-        if (DBManager.loadDriver()) {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    JFrame frame = new PantallaCiudades();
-                    frame.setVisible(true);
-                    frame.setSize(1080,670);
-                    frame.setLocationRelativeTo(null);
-                    frame.setResizable(false);
-                }
-            });
-        }
     }
 }

@@ -33,7 +33,7 @@ public class PantallaClientes extends JFrame{
 
     static ArrayList<Cliente> clientes = new ArrayList<>();
 
-    public PantallaClientes(int usuarioID) {
+    public PantallaClientes() {
         super("Panel Clientes");
         setContentPane(panelGeneral);
         ImageIcon imageLogo = new ImageIcon("imagenes/Logo.png");
@@ -48,7 +48,8 @@ public class PantallaClientes extends JFrame{
 
 
         btnPerfil.addActionListener(e ->{
-            PantallaUsuario userScreen = new PantallaUsuario(usuarioID);
+            PantallaUsuario userScreen = new PantallaUsuario();
+            userScreen.setVisible(true);
         });
 
         btnAdd.addActionListener(new ActionListener() {
